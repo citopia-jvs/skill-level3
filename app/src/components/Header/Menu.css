@@ -1,0 +1,20 @@
+.menu-container {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.menu-link {
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #213547;
+}
+
+.menu-link:hover {
+  text-decoration: underline;
+}
