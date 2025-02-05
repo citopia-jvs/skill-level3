@@ -2,8 +2,8 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { FormData } from '../../types';
 
 const initialState: FormData = {
-  prenom: '',
-  nom: '',
+  prenom: null,
+  nom: null,
   dateNaissance: null,
 };
 

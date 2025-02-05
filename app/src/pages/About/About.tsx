@@ -33,7 +33,8 @@ function About() {
   });
 
   const onSubmit = async (data: FormData) => {
-    dispatch(registerUserInfosAction(data));
+    const userdata = Object.values(userValues).every((value) => value === null) ? data : { ...userValues, ...data };
+    dispatch(registerUserInfosAction(userdata));
   };
 
   const toggleCalendar = () => {
