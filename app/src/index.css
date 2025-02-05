@@ -2,11 +2,6 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -38,9 +33,44 @@ body {
   font-size: 1.6rem;
 }
 
+main {
+  padding: 1rem;
+}
+
 h1 {
-  font-size: 3.2rem;
-  line-height: 1.1;
+  font-size: 2.4rem;
+  line-height: 1.5;
+}
+
+input {
+  border-radius: 0.5rem;
+  height: 4rem;
+  padding: 0 1.5rem;
+  border: 1px solid #ccc;
+  font-size: 1.6rem;
+  color: #333;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.react-date-picker {
+  border-radius: 0.5rem;
+  height: 4rem;
+  padding: 0 1.5rem;
+  border: 1px solid #ccc;
+  font-size: 1.6rem;
+  color: #333;
+  background-color: #fff;
+}
+
+.react-date-picker__wrapper {
+  border: none !important;
+  color: #333;
+  background-color: #fff;
+}
+
+.react-date-picker__inputGroup__input {
+  box-shadow: none;
 }
 
 @keyframes spinner {
@@ -52,15 +82,13 @@ h1 {
   }
 }
 
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@media screen and (min-width: 480px) {
+  main {
+    padding: 2rem 4rem;
   }
-  a:hover {
-    color: #747bff;
+
+  h1 {
+    font-size: 3.2rem;
+    line-height: 1.2;
   }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
+}
