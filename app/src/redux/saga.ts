@@ -6,13 +6,14 @@ import { FormData } from '../types';
 
 // Fonction qui fait l'appel API
 const fetchDataFromApi = (userData: FormData) =>
-  fetch(`https://dummyjson.com/image/400x200?type=webp&text=Bienvenue ${userData.prenom} ${userData.nom} !`)
+  fetch(`https://dummyjson.com/image/400x200?type=webp&text=Bienvenue ${userData.prenom || ''} ${userData.nom || ''} !`)
     .then((response) => response.blob())
     .then((blob) => URL.createObjectURL(blob));
 
 // Saga principale
 function* fetchDataSaga(): Generator<Effect, void, unknown> {
   const user = store.getState().user;
+  //   const currentUrl = store.getState().dummyData.url;
   try {
     const response = yield call(() => fetchDataFromApi(user)); // Appel API
     yield put(fetchDataSuccess(response)); // Dispatch action de succès

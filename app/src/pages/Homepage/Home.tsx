@@ -34,7 +34,7 @@ function App() {
       {loading ? (
         <Skeleton duration={2} height={200} width={400} borderRadius={10} />
       ) : (
-        <img className='welcome-img' src={url} height={200} width={400} alt='Bienvenue' />
+        <img className='welcome-img' src={url} height={200} width={400} alt='Bienvenue' data-testid='welcome-img' />
       )}
       <h2>👋</h2>
       <br />

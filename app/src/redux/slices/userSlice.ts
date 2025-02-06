@@ -17,8 +17,10 @@ export const userSlice = createSlice({
     // immutable state based off those changes.
     registerUserInfosAction: (state, action: PayloadAction<Partial<FormData>>) => {
       state.prenom = action.payload.prenom || '';
+      if (action.payload.dateNaissance !== undefined) {
+        state.dateNaissance = action.payload.dateNaissance;
+      }
       state.nom = action.payload.nom || '';
-      state.dateNaissance = action.payload.dateNaissance || null;
     },
   },
 });

@@ -8,7 +8,6 @@ import 'react-calendar/dist/Calendar.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUserInfosAction } from '../../redux/slices/userSlice';
 import { FormData } from '../../types';
-import { useState } from 'react';
 import { RootState } from '../../redux/store';
 
 const schema = z.object({
@@ -18,7 +17,6 @@ const schema = z.object({
 });
 
 function About() {
-  const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const userValues = useSelector((state: RootState) => state.user);
 
@@ -35,12 +33,6 @@ function About() {
   const onSubmit = async (data: FormData) => {
     const userdata = Object.values(userValues).every((value) => value === null) ? data : { ...userValues, ...data };
     dispatch(registerUserInfosAction(userdata));
-  };
-
-  const toggleCalendar = () => {
-    if (!errors) {
-      setIsOpen((prev) => !prev);
-    }
   };
 
   return (
@@ -61,22 +53,23 @@ function About() {
           {errors.prenom && <div style={{ color: 'red' }}>{errors.prenom.message}</div>}
         </div>
         <div className='input-container'>
-          <label onClick={toggleCalendar}>Date de naissance :&nbsp;</label>
+          <label>Date de naissance :&nbsp;</label>
           <Controller
             control={control}
             name='dateNaissance'
             render={({ field }) => (
               <DatePicker
-                isOpen={isOpen}
                 locale='fr-FR'
-                // format='dd-MM-yyyy'
                 dayPlaceholder='Jour'
                 monthPlaceholder='Mois'
                 yearPlaceholder='Année'
                 showLeadingZeros={true}
-                // disableCalendar={true}
+                disableCalendar={true}
                 onChange={(date) => {
-                  field.onChange(date?.toString());
+                  const year = date ? new Date(date.toString()).getFullYear().toString() : null;
+                  if (date && !year?.startsWith('0')) {
+                    field.onChange(date?.toString());
+                  }
                 }}
                 value={userValues.dateNaissance}
               />

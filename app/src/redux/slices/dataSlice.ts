@@ -13,6 +13,7 @@ const dataSlice = createSlice({
   initialState,
   reducers: {
     fetchDataRequest: (state) => {
+      state.url = '';
       state.loading = true;
       state.error = false;
     },
