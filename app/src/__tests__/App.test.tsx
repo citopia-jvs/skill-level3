@@ -3,12 +3,26 @@
  */
 
 import { describe, expect, test, beforeAll } from 'vitest';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import App from '../App';
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
+import { userSlice } from '../redux/slices/userSlice';
+import dataSlice from '../redux/slices/dataSlice';
 
 describe('Given that I am visiting the app', () => {
   beforeAll(() => {
-    render(<App />);
+    const store: ReturnType<typeof configureStore> = configureStore({
+      reducer: {
+        user: userSlice.reducer,
+        dummyData: dataSlice,
+      },
+    });
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
     screen.debug(); // prints out the jsx tree unto the command line
   });
 
@@ -25,18 +39,21 @@ describe('Given that I am visiting the app', () => {
       expect(aboutElement).toBeTruthy();
     });
 
-    test('Then it should renders the Home component', () => {
-      const homeElement = screen.getByTestId('home-title');
-      expect(homeElement).toBeTruthy();
+    test('Then it should renders the content of Home component', async () => {
+      await waitFor(() => {
+        const homeElement = screen.getByTestId('welcome-title');
+        expect(homeElement).toBeTruthy();
+      });
     });
-  });
 
-  describe('When I navigate to the About page from the menu link item', () => {
-    test('Then it should redirect to the About page and renders the About component', () => {
-      fireEvent.click(screen.getByTestId('about'));
-      // screen.debug();
-      const aboutElement = screen.getByTestId('about-title');
-      expect(aboutElement).toBeTruthy();
+    describe('When I navigate to the About page from the menu link item', () => {
+      test('Then it should redirect to the About page and renders the About component', async () => {
+        fireEvent.click(screen.getByTestId('about'));
+        await waitFor(() => {
+          const aboutElement = screen.getByTestId('about-title');
+          expect(aboutElement).toBeTruthy();
+        });
+      });
     });
   });
 });

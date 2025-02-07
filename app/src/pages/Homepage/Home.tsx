@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 function App() {
   const dispatch = useDispatch();
-  const { url, loading, error } = useSelector((state: RootState) => state.dummyData);
+  const dummyData = useSelector((state: RootState) => state.dummyData);
   const userValues = useSelector((state: RootState) => state.user);
 
   useEffect(() => {
@@ -25,16 +25,23 @@ function App() {
     return daysDiff;
   };
 
-  if (error) {
-    return <h1>Une erreur est survenue</h1>;
+  if (!dummyData) {
+    return <div data-testid='loading'>Chargement...</div>;
+  }
+
+  if (dummyData.error) {
+    return <h1 data-testid='error'>Une erreur est survenue</h1>;
   }
 
   return (
     <>
-      {loading ? (
+      <h1 className='welcome-title' data-testid='welcome-title'>
+        Welcome Home
+      </h1>
+      {dummyData.loading ? (
         <Skeleton duration={2} height={200} width={400} borderRadius={10} />
       ) : (
-        <img className='welcome-img' src={url} height={200} width={400} alt='Bienvenue' data-testid='welcome-img' />
+        <img className='welcome-img' src={dummyData.url} height={200} width={400} alt='Bienvenue' data-testid='welcome-img' />
       )}
       <h2>👋</h2>
       <br />

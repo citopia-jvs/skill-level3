@@ -8,7 +8,7 @@ const initialState: DummyData = {
   error: false,
 };
 
-const dataSlice = createSlice({
+export const dataSlice = createSlice({
   name: 'dummydata',
   initialState,
   reducers: {

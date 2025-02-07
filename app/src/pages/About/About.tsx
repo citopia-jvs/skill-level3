@@ -44,12 +44,12 @@ function About() {
       <form className='about-form' data-testid='form' onFocus={() => isDirty && validatingFields} onBlur={handleSubmit(onSubmit)}>
         <div className='input-container'>
           <label htmlFor='nom'>Nom :&nbsp;</label>
-          <input type='text' id='nom' {...register('nom', { required: true, value: userValues.nom })} />
+          <input data-testid='nom' type='text' id='nom' {...register('nom', { required: true, value: userValues.nom })} />
           {errors.nom && <div style={{ color: 'red' }}>{errors.nom.message}</div>}
         </div>
         <div className='input-container'>
           <label htmlFor='prenom'>Prénom :&nbsp;</label>
-          <input type='text' id='prenom' {...register('prenom', { required: true, value: userValues.prenom })} />
+          <input data-testid='prenom' type='text' id='prenom' {...register('prenom', { required: true, value: userValues.prenom })} />
           {errors.prenom && <div style={{ color: 'red' }}>{errors.prenom.message}</div>}
         </div>
         <div className='input-container'>
@@ -59,6 +59,7 @@ function About() {
             name='dateNaissance'
             render={({ field }) => (
               <DatePicker
+                data-testid='dateNaissance'
                 locale='fr-FR'
                 dayPlaceholder='Jour'
                 monthPlaceholder='Mois'
