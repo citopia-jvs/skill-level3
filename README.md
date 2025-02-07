@@ -1,54 +1,46 @@
-# Test technique Citopia
-## Objectif
-- Le test doit être réalisé en utilisant ce dépôt comme base.
-- Les travaux devront être testables sans aucune modification à apporter au code ou au paramétrage, et si besoin, en suivant une documentation pas-à-pas.
-- Utilisez tous les outils nécessaires pour compléter les tâches.
-- Portez une attention particulière à l'historique Git, comme s'il s'agissait d'une situation réelle en projet.
+# Getting Started with Create React App
 
-## Finalisation de l'exercice
-- Créez une pull request sur le dépôt avec votre travail.
-- Le travail doit être testable et documenté.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Contraintes
-### Dans cet exercice, vous devrez utiliser :
-- React
-- TypeScript
+## Available Scripts
 
-### En option :
-- Ajouter une feature qui vous semble interressante
-- Utiliser Redux Saga.
+In the project directory, you can run:
 
-## Exercices à réaliser
+### `npm start`
 
-### R1 : Création de l'application
-Créez une application fictive comportant les pages suivantes : Accueil, Informations.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-- La page d'accueil devra afficher le contenu défini en R4.
-- La page Informations devra afficher le contenu défini en R2.
-- L'application devra intégrer une navigation permettant de passer d'une page à l'autre.
-- L'application doit pouvoir être facilement lancée en mode développement (avec Hot Reloading) et compilée simplement pour une mise en production.
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-### R2 : Création d'un formulaire utilisateur
-Ajoutez un formulaire sur la page Informations comportant les champs suivants :
+### `npm test`
 
-- Nom
-- Prénom
-- Date de naissance
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### R3 : Mise à jour automatique des données
-Les modifications effectuées dans le formulaire doivent être enregistrées dans un état local sans cliquer sur un bouton "Enregistrer".
-Pour ce faire veillez utiliser une solution de *state-management*
+### `npm run build`
 
-### R4 : Affichage dynamique sur la page d'accueil
-Sur la page d'accueil :
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-- Faites un appel à l'API DummyJSON (https://dummyjson.com/docs) pour générer une image dynamique basée sur les données utilisateur (prénom et nom).
-- L'image sera a afficher au dessus de la phrase : "Votre anniversaire est dans *X* jours" avec *X* le nombre de jours avant la date d'anniversaire spécifiée dans la partie Informations.
-- Attention aux champs qui ne seraient pas encore définis
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-## Points d'attention
-- Organisez votre code pour qu’il soit lisible et maintenable.
-- Fournissez une documentation claire sur la manière d'exécuter, tester et déployer le projet.
-- Adoptez les bonnes pratiques Git : commits clairs, messages explicites, etc.
-- Bonus
-  - Ajoutez des tests unitaires ou d’intégration (exemple : Jest, React Testing Library).
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
