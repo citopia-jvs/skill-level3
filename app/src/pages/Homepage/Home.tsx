@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from 'react';
 import './Home.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,6 +5,7 @@ import { RootState } from '../../redux/store';
 import Skeleton from 'react-loading-skeleton';
 import { fetchDataRequest } from '../../redux/slices/dataSlice';
 import { Link } from 'react-router-dom';
+import { calculateDaysUntilBirthday } from '../../utils';
 
 function App() {
   const dispatch = useDispatch();
@@ -16,14 +16,7 @@ function App() {
     dispatch(fetchDataRequest());
   }, [dispatch]);
 
-  const caluclBirthdayInDays = () => {
-    const today = new Date();
-    const birthdate = new Date(userValues.dateNaissance || '');
-    const birthday = new Date(today.getFullYear(), birthdate.getMonth(), birthdate.getDate());
-    const timeDiff = birthday.getTime() - today.getTime();
-    const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
-    return daysDiff;
-  };
+  const daysUtilBirthday = calculateDaysUntilBirthday(new Date(userValues.dateNaissance || ''));
 
   if (!dummyData) {
     return <div data-testid='loading'>Chargement...</div>;
@@ -39,14 +32,14 @@ function App() {
         Welcome Home
       </h1>
       {dummyData.loading ? (
-        <Skeleton duration={2} height={200} width={400} borderRadius={10} />
+        <Skeleton duration={2} height={200} width={500} borderRadius={10} />
       ) : (
         <img className='welcome-img' src={dummyData.url} height={200} width={400} alt='Bienvenue' data-testid='welcome-img' />
       )}
       <h2>👋</h2>
       <br />
       {userValues.dateNaissance ? (
-        <p>Votre anniversaire est dans {caluclBirthdayInDays()} jours 🎉</p>
+        <p>Votre anniversaire est dans {daysUtilBirthday} jours 🎉</p>
       ) : (
         <>
           <p>Vous n'avez pas encore renseigné votre anniversaire.</p>

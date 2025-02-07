@@ -11,4 +11,7 @@
 
 .welcome-img {
   border-radius: 1rem;
+  object-fit: cover;
+  width: 100%;
+  max-width: 50rem;
 }

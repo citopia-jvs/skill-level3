@@ -6,7 +6,7 @@ import { FormData } from '../types';
 
 // Fonction qui fait l'appel API
 const fetchDataFromApi = (userData: FormData) =>
-  fetch(`https://dummyjson.com/image/400x200?type=webp&text=Bienvenue ${userData.prenom || ''} ${userData.nom || ''} !`)
+  fetch(`https://dummyjson.com/image/400x200/3C91E6/ffffff?type=webp&text=Bienvenue ${userData.prenom || ''} ${userData.nom || ''} !&fontSize=20`)
     .then((response) => response.blob())
     .then((blob) => URL.createObjectURL(blob));
 
