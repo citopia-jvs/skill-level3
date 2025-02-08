@@ -22,8 +22,8 @@ export const userSlice = createSlice({
             return { ...state, ...action.payload };
         },
         setAvatarUrl: (state, action: PayloadAction<string | null>) => {
-            // Safeguard to prevent null/undefined avatar URL
-            state.avatarUrl = action.payload ?? state.avatarUrl; // Use fallback if null or undefined
+            // Safeguard to ensure avatarUrl is always a non-empty string
+            state.avatarUrl = action.payload ? action.payload : state.avatarUrl; // Fallback to current value if null or empty
         }
     }
 });

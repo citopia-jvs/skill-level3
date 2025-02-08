@@ -1,51 +1,32 @@
-// src/features/user/userAPI.ts
-import axios from "axios";
-import { setAvatarUrl } from "./userSlice.ts";
-import { AppDispatch } from "../../store/store";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export const fetchUserAvatar = async (
-    firstName: string,
-    lastName: string,
-    dispatch: AppDispatch
-) => {
-    try {
-        console.log("Fetching user avatar...");
+interface UserState {
+    firstName: string;
+    lastName: string;
+    birthDate: string;
+    avatarUrl: string; // ✅ Always a string
+}
 
-        // 🚨 Prevent fetching when name fields are empty
-        if (!firstName || !lastName) {
-            console.warn("Missing firstName or lastName, skipping avatar fetch.");
-            dispatch(setAvatarUrl(null));
-            return null;
-        }
-
-        // 🌐 Fetch DummyJSON users
-        const response = await axios.get("https://dummyjson.com/users");
-        console.log("DummyJSON Response:", response.data);
-
-        if (response.data.users && response.data.users.length > 0) {
-            // 🎯 Pick a random user that has an image
-            const usersWithImages = response.data.users.filter((user: { image: string }) => user.image);
-            if (usersWithImages.length > 0) {
-                const randomUser = usersWithImages[Math.floor(Math.random() * usersWithImages.length)];
-                console.log("Selected User with Image:", randomUser);
-
-                const avatarUrl = randomUser.image;
-                dispatch(setAvatarUrl(avatarUrl));
-                return avatarUrl;
-            }
-        }
-
-        console.warn("No valid avatars found in DummyJSON, using fallback...");
-
-        // 🔥 Fallback to Pravatar
-        const defaultAvatar = `https://i.pravatar.cc/150?u=${encodeURIComponent(`${firstName}-${lastName}`)}`;
-        console.log("Using default avatar:", defaultAvatar);
-        dispatch(setAvatarUrl(defaultAvatar));
-        return defaultAvatar;
-
-    } catch (error) {
-        console.error("❌ Error fetching avatar:", error);
-        dispatch(setAvatarUrl(null)); // Set null to prevent broken images
-        return null;
-    }
+const initialState: UserState = {
+    firstName: '',
+    lastName: '',
+    birthDate: '',
+    avatarUrl: '' // ✅ Default avatar (prevents flickering)
 };
+
+export const userSlice = createSlice({
+    name: 'user',
+    initialState,
+    reducers: {
+        updateUserInfo: (state, action: PayloadAction<Partial<UserState>>) => {
+            return { ...state, ...action.payload };
+        },
+        setAvatarUrl: (state, action: PayloadAction<string>) => {
+            // Safeguard to ensure avatarUrl is always a string
+            state.avatarUrl = action.payload || state.avatarUrl; // Fallback to current value if empty string
+        }
+    }
+});
+
+export const { updateUserInfo, setAvatarUrl } = userSlice.actions;
+export default userSlice.reducer;

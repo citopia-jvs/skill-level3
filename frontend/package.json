@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.1",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
     "axios": "^1.7.9",
     "dayjs": "^1.11.13",
     "framer-motion": "^12.4.0",
