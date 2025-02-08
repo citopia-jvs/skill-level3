@@ -26,12 +26,12 @@ const Information: React.FC = () => {
                 {({ setFieldValue }) => {
                     const handleChange = (field: string, value: string) => {
                         setFieldValue(field, value);
-                        handleUserInformation({ ...user, [field]: value });
+                        handleUserInformation({ [field]: value });
                     };
                     return (
                         <Form className="flex flex-col items-center gap-y-4 w-full mt-12s">
                             <Field
-                                className="border-2 border-indigo-500 h-12 p-2 w-[20%]"
+                                className="border-2 border-indigo-500 h-12 p-2 lg:w-[20%]"
                                 placeholder="Prénom"
                                 type="text"
                                 name="firstName"
@@ -42,9 +42,13 @@ const Information: React.FC = () => {
                                     handleChange("firstName", e.target.value);
                                 }}
                             />
-                            <ErrorMessage name="firstName" component="div" />
+                            <ErrorMessage
+                                className="text-red-500"
+                                name="firstName"
+                                component="div"
+                            />
                             <Field
-                                className="border-2 border-indigo-500 2 h-12 p-2 w-[20%]"
+                                className="border-2 border-indigo-500 2 h-12 p-2 lg:w-[20%]"
                                 placeholder="Nom"
                                 type="text"
                                 name="lastName"
@@ -55,9 +59,13 @@ const Information: React.FC = () => {
                                     handleChange("lastName", e.target.value);
                                 }}
                             />
-                            <ErrorMessage name="lastName" component="div" />
+                            <ErrorMessage
+                                className="text-red-500"
+                                name="lastName"
+                                component="div"
+                            />
                             <Field
-                                className="border-2 border-indigo-500 h-12 p-2 w-[20%]"
+                                className="border-2 border-indigo-500 h-12 p-2 lg:w-[20%]"
                                 placeholder="Date de Naissance"
                                 type="date"
                                 name="birthDate"
@@ -68,7 +76,6 @@ const Information: React.FC = () => {
                                     handleChange("birthDate", e.target.value);
                                 }}
                             />
-                            <ErrorMessage name="birthDate" component="div" />
                         </Form>
                     );
                 }}

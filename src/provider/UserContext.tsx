@@ -7,7 +7,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     const [user, setUser] = useState<User | null>(null);
 
     const handleUserInformation = (values: User) => {
-        setUser(values);
+        setUser((prevState) => ({ ...prevState, ...values }));
     };
 
     return (
