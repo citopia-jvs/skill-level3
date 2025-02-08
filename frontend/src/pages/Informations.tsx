@@ -1,10 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { AppDispatch, RootState } from "../store/store";
-import { updateUserInfo } from "../features/user/userSlice";
+import { AppDispatch, RootState } from "@/store/store";
+import { updateUserInfo } from "@/features/user/userSlice";
 import "../styles/Birthday.css";
-import { UserState } from "../types/user.types";// Ensure the path is correct
+import { UserState } from "@/types/user.types";// Ensure the path is correct
 
 const Informations: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();

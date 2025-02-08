@@ -1,7 +1,7 @@
 // src/features/user/userAPI.ts
 import axios from "axios";
 import { setAvatarUrl } from "./userSlice";
-import { AppDispatch } from "../../store/store";
+import { AppDispatch } from "@/store/store";
 
 interface User {
     image: string;

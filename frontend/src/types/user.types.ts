@@ -1,4 +1,4 @@
-interface UserState {
+export interface UserState {
     firstName: string;
     lastName: string;
     birthDate: string;
