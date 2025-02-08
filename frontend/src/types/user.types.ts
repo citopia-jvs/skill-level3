@@ -1,9 +1,6 @@
-// src/types/user.types.ts
-export interface UserState {
+interface UserState {
     firstName: string;
     lastName: string;
     birthDate: string;
-    loading: boolean;
-    error: string | null;
-    avatarUrl: string | null;
+    avatarUrl: string | null;  // Allow null here
 }

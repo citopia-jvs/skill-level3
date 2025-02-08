@@ -11,6 +11,13 @@ import '../styles/Birthday.css';
 import { sendQuery } from '../api/wishService';
 import { useDebounce } from '../hooks/useDebounce';
 
+// Define the type for processing details (adjust as per your structure)
+interface ProcessingDetail {
+    step: string;
+    result: string;
+    // other properties
+}
+
 const Accueil: React.FC = () => {
     const { firstName, lastName, birthDate, avatarUrl } = useSelector(
         (state: RootState) => state.user
@@ -31,9 +38,9 @@ const Accueil: React.FC = () => {
 
     // Debounced avatar fetching after name changes
     useDebounce(
-        () => {
+        async () => {
             if (firstName.trim() && lastName.trim()) {
-                fetchUserAvatar(firstName, lastName, dispatch);
+                await fetchUserAvatar(firstName, lastName, dispatch);
             }
         },
         2000, // Delay in milliseconds (e.g., 2000ms = 2 seconds)
@@ -71,7 +78,7 @@ const Accueil: React.FC = () => {
             appendLog(`Summary: ${result.summary}`, false);
 
             // Show processing details in logs
-            result.processingDetails.forEach((detail, index) => {
+            result.processingDetails.forEach((detail: ProcessingDetail, index: number) => {
                 appendLog(`[Step ${index + 1}] ${JSON.stringify(detail)}`, false);
             });
         } catch (error: any) {
