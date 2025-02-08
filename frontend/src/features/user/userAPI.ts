@@ -24,7 +24,7 @@ export const fetchUserAvatar = async (
 
         if (response.data.users && response.data.users.length > 0) {
             // 🎯 Pick a random user that has an image
-            const usersWithImages = response.data.users.filter(user => user.image);
+            const usersWithImages = response.data.users.filter((user: { image: string }) => user.image);
             if (usersWithImages.length > 0) {
                 const randomUser = usersWithImages[Math.floor(Math.random() * usersWithImages.length)];
                 console.log("Selected User with Image:", randomUser);
