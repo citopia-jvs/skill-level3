@@ -1,7 +1,7 @@
 // src/api/wishService.ts
 import axios from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3001';
 
 export interface QueryResponse {
     status: string;
