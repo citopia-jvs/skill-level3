@@ -1,7 +1,7 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useUserProvider } from "../provider/UserContext";
 import { useUsersInformation } from "../hooks/useUsersInformation";
-import { useEffect } from "react";
 
 const Home: React.FC = () => {
     const { user, handleUserInformation } = useUserProvider();
@@ -14,17 +14,19 @@ const Home: React.FC = () => {
     useEffect(() => {
         const res = data?.filter(
             (u) =>
-                u?.firstName
-                    ?.toLowerCase()
-                    .includes(user?.firstName?.toLowerCase() ?? "") &&
-                u?.lastName
-                    ?.toLowerCase()
-                    .includes(user?.lastName?.toLowerCase() ?? "")
+                u?.firstName?.toLowerCase() ===
+                    user?.firstName?.toLowerCase() &&
+                u?.lastName?.toLowerCase() === user?.lastName?.toLowerCase()
         );
 
-        if (res?.[0]?.image && res[0].image !== user?.image) {
+        if (
+            res?.length === 1 &&
+            res?.[0]?.image &&
+            res[0].image !== user?.image
+        ) {
             handleUserInformation({ image: res[0].image });
-        }
+        } else if (res?.length === 0 && user?.image)
+            handleUserInformation({ image: "" });
     }, [data, user, handleUserInformation]);
 
     const calculateNextBirthday = () => {
@@ -34,7 +36,7 @@ const Home: React.FC = () => {
         let nextBirthday;
 
         if (birthDate) {
-            const [_, month, day] = birthDate.split("-").map(Number);
+            const [, month, day] = birthDate.split("-").map(Number);
             let birthday = new Date(today.getFullYear(), month - 1, day);
 
             if (birthday <= today) {
@@ -78,19 +80,19 @@ const Home: React.FC = () => {
                 <div className="loader">En cours de chargement...</div>
             ) : isError ? (
                 <div>Une erreur s'est produite</div>
-            ) : user ? (
+            ) : user?.firstName && user?.lastName ? (
                 <>
-                    <h1 className="text-2xl font-bold">
+                    <h1 className="text-2xl font-light">
                         Bonjour {user?.firstName}
                     </h1>
                     {user?.birthDate ? (
                         calculateNextBirthday()
                     ) : (
                         <Link
-                            className="rounded-full bg-indigo-500 p-3 text-white"
+                            className="rounded-full bg-indigo-500 p-3 text-white hover:bg-indigo-700"
                             to="/information"
                         >
-                            Ajouter votre date d'anniversaire
+                            Ajouter la date de naissance
                         </Link>
                     )}
                     {user?.image && <img src={user?.image} alt="img" />}
@@ -100,7 +102,7 @@ const Home: React.FC = () => {
                     className="rounded-full bg-indigo-500 p-3 text-white"
                     to="/information"
                 >
-                    Cliquer ici pour remplir le formulaire
+                    Remplir le formulaire
                 </Link>
             )}
         </div>

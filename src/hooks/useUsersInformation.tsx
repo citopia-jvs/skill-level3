@@ -4,7 +4,7 @@ import { User } from "../types/userTypes";
 
 export const useUsersInformation = (firstName: string, lastName: string) => {
     return useQuery<User[]>({
-        queryKey: ["users", firstName, lastName],
+        queryKey: ["userInformation", firstName, lastName],
         queryFn: async (): Promise<User[]> => {
             const response = await axios.get(
                 `https://dummyjson.com/users/search?q=${lastName}`

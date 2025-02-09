@@ -4,9 +4,20 @@ import { User, UserContextType } from "../types/userTypes";
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
-    const [user, setUser] = useState<User | null>(null);
+    const [user, setUser] = useState<User>({
+        firstName: "",
+        lastName: "",
+        birthDate: "",
+    });
 
     const handleUserInformation = (values: User) => {
+        if (
+            values?.firstName?.trim() === "" ||
+            values?.lastName?.trim() === ""
+        ) {
+            setUser({ firstName: "", lastName: "", birthDate: "", image: "" });
+        }
+
         setUser((prevState) => ({ ...prevState, ...values }));
     };
 
