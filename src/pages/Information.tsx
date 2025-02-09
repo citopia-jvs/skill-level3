@@ -38,34 +38,6 @@ const Information: React.FC = () => {
                         >
                             <div className="flex flex-col items-start lg:w-[20%]">
                                 <label
-                                    htmlFor="firstName"
-                                    className="font-light text-indigo-800 pb-2"
-                                >
-                                    PRENOM
-                                </label>
-                                <Field
-                                    className="border-2 border-indigo-500 h-12 p-2 lg:w-[100%]"
-                                    placeholder="Prénom"
-                                    type="text"
-                                    name="firstName"
-                                    value={user?.firstName}
-                                    onChange={(
-                                        e: React.ChangeEvent<HTMLInputElement>
-                                    ) => {
-                                        handleChange(
-                                            "firstName",
-                                            e.target.value
-                                        );
-                                    }}
-                                />
-                                <ErrorMessage
-                                    className="text-red-500"
-                                    name="firstName"
-                                    component="div"
-                                />
-                            </div>
-                            <div className="flex flex-col items-start lg:w-[20%]">
-                                <label
                                     htmlFor="lastName"
                                     className="font-light text-indigo-800 pb-2"
                                 >
@@ -89,6 +61,34 @@ const Information: React.FC = () => {
                                 <ErrorMessage
                                     className="text-red-500"
                                     name="lastName"
+                                    component="div"
+                                />
+                            </div>
+                            <div className="flex flex-col items-start lg:w-[20%]">
+                                <label
+                                    htmlFor="firstName"
+                                    className="font-light text-indigo-800 pb-2"
+                                >
+                                    PRENOM
+                                </label>
+                                <Field
+                                    className="border-2 border-indigo-500 h-12 p-2 lg:w-[100%]"
+                                    placeholder="Prénom"
+                                    type="text"
+                                    name="firstName"
+                                    value={user?.firstName}
+                                    onChange={(
+                                        e: React.ChangeEvent<HTMLInputElement>
+                                    ) => {
+                                        handleChange(
+                                            "firstName",
+                                            e.target.value
+                                        );
+                                    }}
+                                />
+                                <ErrorMessage
+                                    className="text-red-500"
+                                    name="firstName"
                                     component="div"
                                 />
                             </div>

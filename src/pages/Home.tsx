@@ -85,6 +85,7 @@ const Home: React.FC = () => {
                     <h1 className="text-2xl font-light">
                         Bonjour {user?.firstName}
                     </h1>
+                    {user?.image && <img src={user?.image} alt="img" />}
                     {user?.birthDate ? (
                         calculateNextBirthday()
                     ) : (
@@ -95,7 +96,6 @@ const Home: React.FC = () => {
                             Ajouter la date de naissance
                         </Link>
                     )}
-                    {user?.image && <img src={user?.image} alt="img" />}
                 </>
             ) : (
                 <Link
