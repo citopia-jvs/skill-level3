@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AppDispatch, RootState } from "@/store/store";
 import { updateUserInfo } from "@/features/user/userSlice";
 import "../styles/Birthday.css";
-import { UserState } from "@/types/user.types";// Ensure the path is correct
+import { UserState } from "@/types/user.types"; // Ensure the path is correct
 
 const Informations: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -13,11 +13,11 @@ const Informations: React.FC = () => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
 
-        // Assign undefined instead of null if the input is empty
-        if (!value) {
-            dispatch(updateUserInfo({ [name]: undefined } as Partial<UserState>));
+        // Assign undefined instead of null if the input is empty for avatarUrl
+        if (!value && name === 'avatarUrl') {
+            dispatch(updateUserInfo({ [name]: undefined })); // Set avatarUrl to undefined
         } else {
-            dispatch(updateUserInfo({ [name]: value } as Partial<UserState>));
+            dispatch(updateUserInfo({ [name]: value } as Partial<UserState>)); // Set other fields normally
         }
     };
 
