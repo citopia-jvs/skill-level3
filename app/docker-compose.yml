@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: app-front
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/app
+    environment:
+      NODE_ENV: production
+
+volumes:
+  app_data:

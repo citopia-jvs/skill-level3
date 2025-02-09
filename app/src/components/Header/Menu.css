@@ -15,6 +15,10 @@
   color: #213547;
 }
 
+.menu-link.active {
+  text-decoration: underline;
+}
+
 .menu-link:hover {
   text-decoration: underline;
 }
