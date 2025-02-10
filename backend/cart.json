@@ -103,5 +103,20 @@
     "id": "baguette",
     "name": "Baguette",
     "url": "https://en.wikipedia.org/wiki/Baguette"
+  },
+  {
+    "id": "baguette",
+    "name": "Baguette",
+    "url": "https://en.wikipedia.org/wiki/Baguette"
+  },
+  {
+    "id": "baguette_traditionelle",
+    "name": "Baguette Traditionelle",
+    "url": "https://www.example.com/baguette-traditionelle"
+  },
+  {
+    "id": "baguette",
+    "name": "Baguette",
+    "url": "https://example.com/baguette"
   }
 ]

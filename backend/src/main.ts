@@ -20,14 +20,14 @@ async function bootstrap() {
   if (isDevelopment) {
     // Allow local requests from frontend during development
     app.enableCors({
-      origin: 'http://localhost:3000', // Allow local frontend
+      origin: 'http://localhost:5173', // Allow local frontend
       methods: ['GET', 'POST'],
       allowedHeaders: ['Content-Type', 'Authorization'],
     });
   } else {
     // Allow requests only from production frontend
     app.enableCors({
-      origin: 'https://skill-level3-7ripn4abu-sergueis-projects-5c54ca99.vercel.app', // Vercel frontend URL
+      origin: 'https://skill-level3.vercel.app//', // Vercel frontend URL
       methods: ['GET', 'POST'],
       allowedHeaders: ['Content-Type', 'Authorization'],
     });
