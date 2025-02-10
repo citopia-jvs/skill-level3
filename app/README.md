@@ -3,7 +3,7 @@
 - Install modules via `npm i` from app folder.
 - Run in dev mode (hmr) : `npm run dev`.
 - Run tests (with coverage) : `npm run test`.
-- Run build (for prod) with tests : `npm run build`.
+- Run build (for prod) with tests : `npm run build`, then `docker-compose up -d --build` to run with docker.
 
 <br/>
 ####################################################
