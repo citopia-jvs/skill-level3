@@ -1,17 +1,31 @@
-## Citopia-JVS Test - Application Full Stack
+# Test technique Citopia
 
+---
 ### **Lien vers l'application déployée**
 
 L'application est déployée et accessible via ce lien : [Citopia-JVS](https://skill-level3-7m8e0iqas-sergueis-projects-5c54ca99.vercel.app/)
-Back end : [Citopia-JVS-backend](https://mistral-zs6l.onrender.com)
+
+Démarrer le backend (le réveiller): [Citopia-JVS-backend](https://mistral-zs6l.onrender.com)
+
+![Vercel](https://img.shields.io/badge/Vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+![RESTful API](https://img.shields.io/badge/RESTful_API-%23007EC6.svg?style=for-the-badge&logo=api&logoColor=white)
+![Render](https://img.shields.io/badge/Render-%2346E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
 
 ---
 
-### **Frontend (Vite, React, Redux, Yarn)**
+### **Frontend**
 
 C'est une application conçue pour illustrer une **expérience utilisateur fluide et réactive** en s'appuyant sur un **système multi-agent supervisé**.
 
-Le **frontend** repose sur **React, Redux, et TypeScript**, garantissant une gestion d'état efficace et une architecture évolutive. Grâce à **Vite**, le projet bénéficie d'un **hot reloading instantané** et de performances accrues.
+Le **frontend** repose sur **React, Redux, TypeScript, Vite, Yarn**, garantissant une gestion d'état efficace et une architecture évolutive. Grâce à **Vite**, le projet bénéficie d'un **hot reloading instantané** et de performances accrues.
+
+![Vite](https://img.shields.io/badge/Vite-%23FFD700.svg?style=for-the-badge&logo=vite&logoColor=white)
+![React](https://img.shields.io/badge/React-%2361DAFB.svg?style=for-the-badge&logo=react&logoColor=black)
+![Redux](https://img.shields.io/badge/Redux-%23764ABC.svg?style=for-the-badge&logo=redux&logoColor=white)
+![Yarn](https://img.shields.io/badge/Yarn-%232C8EBB.svg?style=for-the-badge&logo=yarn&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-%233178C6.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 
 #### **Points forts du Frontend :**
 
@@ -19,23 +33,31 @@ Le **frontend** repose sur **React, Redux, et TypeScript**, garantissant une ges
 - **Code robuste et maintenable grâce à TypeScript**.
 - **Gestion d'état avancée avec Redux**, assurant une synchronisation fluide.
 - **UI dynamique et interactive avec React**, optimisée pour une expérience utilisateur engageante.
-- **Intégration fluide avec des APIs REST**, notamment **DummyJSON API**, pour récupérer des données et générer des contenus dynamiques.
-- **Optimisation des performances avec lazy loading et code splitting**.
-- **Animations et transitions élégantes**.
-- **Accessibilité et personnalisation des thèmes**, offrant une expérience inclusive.
+- **Intégration fluide avec des APIs**, notamment **DummyJSON API**, pour récupérer des données et générer des contenus dynamiques.
 - **Optimisations de performance pour une exécution fluide et efficace**.
 - **Déploiement rapide et efficace sur Vercel et Render avec Redis pour le caching**.
 
 ---
 
-### **Backend (NestJS, Langchain, Langraph, Tavily API, Mistral API) - Optionnel et Innovant**
+### **Backend - feature mentionnée dans la tâche ("Ajouter une feature qui vous semble intéressante")**
 
-Le **backend** est conçu avec **NestJS et TypeScript**, et intègre des technologies avancées comme **Langchain et Langraph** pour orchestrer les workflows multi-agents, ainsi que **Tavily API et Mistral API** pour enrichir les capacités de traitement des données.
+Le **backend** est conçu avec **Node.js, NestJS, Express(avec un adaptateur), TypeScript** et intègre **Langchain, Langraph et LangSmith** pour orchestrer les workflows multi-agents et RAG, ainsi que **Tavily API et Mistral API** pour enrichir les capacités de traitement des données.
+
+![TypeScript](https://img.shields.io/badge/TypeScript-%233178C6.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-%23339933.svg?style=for-the-badge&logo=node.js&logoColor=white)
+![NestJS](https://img.shields.io/badge/NestJS-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-%23000000.svg?style=for-the-badge&logo=express&logoColor=white)
+![Langchain](https://img.shields.io/badge/Langchain-%2346a37a.svg?style=for-the-badge&logo=langchain&logoColor=white)
+![LangGraph](https://img.shields.io/badge/LangGraph-%231ABC9C.svg?style=for-the-badge&logo=langgraph&logoColor=white)
+![LangSmith](https://img.shields.io/badge/LangSmith-%23FF4500.svg?style=for-the-badge&logo=langsmith&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-%23DC382D.svg?style=for-the-badge&logo=redis&logoColor=white)
+![Tavily](https://img.shields.io/badge/Tavily-%23121212.svg?style=for-the-badge&logo=logitech&logoColor=white)
+![Mistral AI](https://img.shields.io/badge/Mistral_AI-%230D47A1.svg?style=for-the-badge&logo=artstation&logoColor=white)
 
 #### **Caractéristiques principales du Backend :**
 
 - **API REST modulaire avec NestJS**, facilitant l’échange de données.
-- **Orchestration avancée des agents avec Langchain et Langraph**.
+- **Orchestration avancée des agents avec LangChain, LangGraph et LangSmith**.
 - **Intégration des APIs Tavily et Mistral** pour enrichir l’analyse et l’interprétation des données.
 - **Gestion optimisée des interactions avec un superviseur dédié**.
 - **Déploiement sur Render**, assurant scalabilité et fiabilité.
@@ -51,7 +73,6 @@ Avant de lancer l'application en local, assurez-vous d'avoir installé :
 - **Node.js** (version 16 ou supérieure)
 - **Yarn** (pour la gestion des dépendances du frontend)
 - **NPM** (pour la gestion des dépendances du backend)
-- **Docker** (optionnel, pour la base de données locale)
 - **Clés API** pour Tavily API et Mistral API (à configurer dans les fichiers `.env`)
 
 #### **Clonage du projet**
@@ -74,8 +95,6 @@ L'application frontend sera accessible à : `http://localhost:5173`
 ##### **Hot Reloading pour le frontend**
 
 - **Vite** permet un hot reloading instantané en surveillant les fichiers sources et en rechargeant uniquement les composants modifiés.
-- **React Fast Refresh** assure une mise à jour immédiate des changements dans le code sans perte d’état.
-- **Utilisation recommandée** : Lors du développement, toute modification dans les fichiers `.tsx` ou `.js` est appliquée en temps réel dans le navigateur sans nécessiter de rechargement manuel.
 
 #### **Installation et démarrage du backend (NPM)**
 
@@ -87,14 +106,7 @@ npm run start:dev
 
 L'API backend sera disponible à : `http://localhost:3001`
 
-##### **Hot Reloading pour le backend**
-
-- **NestJS** utilise **nodemon** pour surveiller les modifications et redémarrer automatiquement le serveur.
-- **Installation supplémentaire si nécessaire** :
-
-```bash
-npm install -g nodemon
-```
+##### **Backend**
 
 - **Commande pour un rechargement instantané** :
 
@@ -120,29 +132,18 @@ VITE_BACKEND_URL=http://localhost:3001
 TAVILY_API_KEY=votre_clé_api_tavily
 MISTRAL_API_KEY=votre_clé_api_mistral
 ```
-
 ---
-
-### **Test Technique Citopia-JVS**
-
-Ce test technique a été conçu pour évaluer la capacité à :
-
-- **Développer une application complète en React et Redux**.
-- **Créer une gestion dynamique des données utilisateur via une intégration API**.
-- **Exploiter pleinement DummyJSON API pour générer du contenu dynamique et interactif**.
-- **Structurer un projet de manière propre et évolutive**.
-- **Respecter les meilleures pratiques de développement et de gestion Git**.
 
 J’ai choisi d’intégrer une approche backend optionnelle pour démontrer une vision plus étendue du projet et explorer des perspectives intéressantes. Ce choix traduit un **investissement personnel pour enrichir et structurer l’application**, tout en conservant la clarté et la maintenabilité du code.
 
 ### **Réflexion sur l'expérience de développement**
 
-J’ai pris énormément de plaisir à travailler sur cette tâche. Elle était **stimulante, élégante et enrichissante**, offrant une belle opportunité de faire preuve de **créativité tout en respectant des critères stricts de développement de haut niveau et de bonnes pratiques de développement**. L'intégration de **DummyJSON API** a été particulièrement intéressante pour démontrer une **approche dynamique et réactive des données utilisateur**. Cette expérience a renforcé mon engagement à produire un code **structuré, performant et maintenable**, en alliant **innovation et rigueur technique**.
+J’ai pris énormément de plaisir à travailler sur cette tâche. Elle était **stimulante, élégante et enrichissante**, offrant une belle opportunité de faire preuve de **créativité tout en respectant des critères stricts de développement de haut niveau et de bonnes pratiques de développement**.
 
-### **Réflexion sur l'expérience de développement**
+---
+P.S. J’ai ajouté un Easter Egg dans l’Annonce du menu supérieur et Spotify API pour ajouter une ambiance musicale immersive. 🎧✨
 
-J’ai pris énormément de plaisir à travailler sur cette tâche. Elle était **stimulante, élégante et enrichissante**, offrant une belle opportunité de faire preuve de **créativité tout en respectant des critères stricts de développement de haut niveau et de bonnes pratiques de développement**. L'intégration de **DummyJSON API** a été particulièrement intéressante pour démontrer une **approche dynamique et réactive des données utilisateur**. Cette expérience a renforcé mon engagement à produire un code **structuré, performant et maintenable**, en alliant **innovation et rigueur technique**.
-
+---
 # Test technique Citopia
 ## Objectif
 - Le test doit être réalisé en utilisant ce dépôt comme base.
