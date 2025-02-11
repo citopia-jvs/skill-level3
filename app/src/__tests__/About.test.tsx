@@ -3,22 +3,29 @@
  */
 
 import '@testing-library/dom';
-import { describe, expect, test, beforeEach, afterEach } from 'vitest';
-import { render } from '@testing-library/react';
+import { describe, expect, test, afterEach, beforeAll } from 'vitest';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import About from '../pages/About/About';
 import { Provider } from 'react-redux';
 import { userSlice } from '../redux/slices/userSlice';
 import { configureStore } from '@reduxjs/toolkit';
+import dataSlice from '../redux/slices/dataSlice';
+import { RootState } from '../redux/store';
 
 describe('Given the About component', () => {
-  let store: ReturnType<typeof configureStore>;
+  const store: ReturnType<typeof configureStore> = configureStore({
+    reducer: {
+      user: userSlice.reducer,
+      dummyData: dataSlice,
+    },
+  });
 
-  beforeEach(() => {
-    store = configureStore({
-      reducer: {
-        user: userSlice.reducer,
-      },
-    });
+  beforeAll(() => {
+    render(
+      <Provider store={store}>
+        <About />
+      </Provider>
+    );
   });
 
   afterEach(() => {
@@ -27,49 +34,31 @@ describe('Given the About component', () => {
 
   describe('When it is rendered', () => {
     test('Then it should render a form with the correct title', () => {
-      const { getByText } = render(
-        <Provider store={store}>
-          <About />
-        </Provider>
-      );
-      expect(getByText('Vos informations')).toBeTruthy();
+      expect(screen.getByText('Vos informations')).toBeTruthy();
     });
 
-    test('Then it should render three input fields', () => {
-      const { getAllByRole } = render(
-        <Provider store={store}>
-          <About />
-        </Provider>
-      );
-      expect(getAllByRole('textbox').length).toBe(4);
+    test('Then it should render two input fields (nom and prénom)', () => {
+      expect(screen.getAllByRole('textbox').length).toBe(2);
     });
 
-    test('Then it should render a calendar', () => {
-      render(
-        <Provider store={store}>
-          <About />
-        </Provider>
-      );
-      // expect(getByRole('button')).toBeTruthy();
+    test('Then it should render a date selector', () => {
+      expect(screen.getByTestId('dateNaissance')).toBeTruthy();
     });
   });
 
   describe('When the form change', () => {
     test('Then it should dispatch the correct action', async () => {
-      render(
-        <Provider store={store}>
-          <About />
-        </Provider>
-      );
-      // const nomInput = getByTestId('nom');
-      // const prenomInput = getByTestId('prenom');
-      // const dateNaissanceInput = getByTestId('dateNaissance');
+      screen.debug(screen.getByTestId('nom'));
+      const nomInput = screen.getByTestId('nom');
+      const prenomInput = screen.getByTestId('prenom');
+      // const dateNaissanceInput = screen.getByTestId('dateNaissance');
 
-      // fireEvent.change(nomInput, { target: { value: null } });
-      // fireEvent.change(prenomInput, { target: { value: null } });
+      fireEvent.change(nomInput, { target: { value: 'Doe' } });
+      fireEvent.change(prenomInput, { target: { value: 'John' } });
+      fireEvent.blur(nomInput);
       // fireEvent.change(dateNaissanceInput, { target: { value: '1990-01-01' } });
 
-      // await waitFor(() => expect((store.getState() as any).user).toEqual({ nom: 'Doe', prenom: 'John' }));
+      await waitFor(() => expect((store.getState() as RootState).user).toEqual({ nom: 'Doe', prenom: 'John', dateNaissance: null }));
     });
   });
 });
