@@ -10,9 +10,7 @@ function App() {
             <Router>
                 <nav>
                     <ul>
-                        <li><Link to="/">Accueil |</Link><Link to="/informations"> Informations |</Link><a
-                            href="https://camerone-frontend.vercel.app/" target="_blank"
-                            rel="noopener noreferrer"> Announce</a></li>
+                        <li><Link to="/">Accueil |</Link><Link to="/informations"> Informations |</Link><a href="https://camerone-frontend.vercel.app/" target="_blank" rel="noopener noreferrer"> Announce</a></li>
                     </ul>
                 </nav>
                 <Routes>

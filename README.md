@@ -1,11 +1,11 @@
 # Test technique Citopia
-
+![capture.png](capture.png)
 ---
 ### **Lien vers l'application déployée**
 
-L'application est déployée et accessible via ce lien : [Citopia-JVS](https://skill-level3-7m8e0iqas-sergueis-projects-5c54ca99.vercel.app/)
+L'application est déployée et accessible via ce lien : [Citopia-JVS test](https://skill-level3.vercel.app)
 
-Démarrer le backend (le réveiller): [Citopia-JVS-backend](https://mistral-zs6l.onrender.com)
+Démarrer le backend (le réveiller): [Citopia-JVS test-backend](https://mistral-zs6l.onrender.com)
 
 ![Vercel](https://img.shields.io/badge/Vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
 ![RESTful API](https://img.shields.io/badge/RESTful_API-%23007EC6.svg?style=for-the-badge&logo=api&logoColor=white)
@@ -41,7 +41,7 @@ Le **frontend** repose sur **React, Redux, TypeScript, Vite, Yarn**, garantissan
 
 ### **Backend - feature mentionnée dans la tâche ("Ajouter une feature qui vous semble intéressante")**
 
-Le **backend** est conçu avec **Node.js, NestJS, Express(avec un adaptateur), TypeScript** et intègre **Langchain, Langraph et LangSmith** pour orchestrer les workflows multi-agents et RAG, ainsi que **Tavily API et Mistral API** pour enrichir les capacités de traitement des données.
+Le **backend** est conçu avec **Node.js, NestJS, Express(avec un adaptateur), TypeScript** et intègre **LangChain, LangGraph et LangSmith** pour orchestrer les workflows multi-agents et RAG, ainsi que **Tavily API et Mistral API** pour enrichir les capacités de traitement des données.
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-%233178C6.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-%23339933.svg?style=for-the-badge&logo=node.js&logoColor=white)

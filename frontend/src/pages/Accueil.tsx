@@ -149,7 +149,7 @@ const Accueil: React.FC = () => {
                             {avatarUrl ? (
                                 <img src={avatarUrl} alt="Avatar" className="avatar-image" />
                             ) : (
-                                <p>Chargement de l'avatar...</p>
+                                <p>Avatar</p>
                             )}
                         </div>
 
