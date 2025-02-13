@@ -1,5 +1,5 @@
 # Test technique Citopia
-![capture.png](capture.png)
+
 ---
 ### **Lien vers l'application déployée**
 
@@ -11,13 +11,14 @@ Démarrer le backend (le réveiller): [Citopia-JVS test-backend](https://mistral
 ![RESTful API](https://img.shields.io/badge/RESTful_API-%23007EC6.svg?style=for-the-badge&logo=api&logoColor=white)
 ![Render](https://img.shields.io/badge/Render-%2346E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
 
+![capture2.png](capture2.png)
 ---
 
 ### **Frontend**
 
 C'est une application conçue pour illustrer une **expérience utilisateur fluide et réactive** en s'appuyant sur un **système multi-agent supervisé**.
 
-Le **frontend** repose sur **React, Redux, TypeScript, Vite, Yarn**, garantissant une gestion d'état efficace et une architecture évolutive. Grâce à **Vite**, le projet bénéficie d'un **hot reloading instantané** et de performances accrues.
+Le **frontend** repose sur **React, Redux, TypeScript, Vite, Yarn, Framer Motion**, garantissant une gestion d'état efficace et une architecture évolutive. Grâce à **Vite**, le projet bénéficie d'un **hot reloading instantané** et de performances accrues.
 
 ![Vite](https://img.shields.io/badge/Vite-%23FFD700.svg?style=for-the-badge&logo=vite&logoColor=white)
 ![React](https://img.shields.io/badge/React-%2361DAFB.svg?style=for-the-badge&logo=react&logoColor=black)
@@ -26,7 +27,7 @@ Le **frontend** repose sur **React, Redux, TypeScript, Vite, Yarn**, garantissan
 ![TypeScript](https://img.shields.io/badge/TypeScript-%233178C6.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![HTML5](https://img.shields.io/badge/HTML5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-
+![Framer Motion](https://img.shields.io/badge/Framer%20Motion-%23BE34D3.svg?style=for-the-badge&logo=data:image/svg+xml;base64,...)
 #### **Points forts du Frontend :**
 
 - **Développement ultra-rapide avec Vite**, réduisant les temps de compilation.
