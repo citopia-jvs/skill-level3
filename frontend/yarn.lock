@@ -1391,7 +1391,7 @@ __metadata:
     axios: "npm:^1.7.9"
     dayjs: "npm:^1.11.13"
     eslint: "npm:^8.0.0"
-    framer-motion: "npm:^12.4.0"
+    framer-motion: "npm:^12.4.2"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     react-redux: "npm:^9.2.0"
@@ -2049,9 +2049,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^12.4.0":
-  version: 12.4.1
-  resolution: "framer-motion@npm:12.4.1"
+"framer-motion@npm:^12.4.2":
+  version: 12.4.2
+  resolution: "framer-motion@npm:12.4.2"
   dependencies:
     motion-dom: "npm:^12.0.0"
     motion-utils: "npm:^12.0.0"
@@ -2067,7 +2067,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10c0/8d1f521f836d475330b1f9b9073d366f4aa7fcf15b7e697309847fdeeedc65928eff844aa6887ecc908451521934dec73726d8bf6c3895c4e58a88997df9f448
+  checksum: 10c0/31d1a5360278de19ccf8e3e79cf442e15b5c04980130914f8cdcd3becc99fbd47088041b9b92fc9c06af7dc4030dc3b6e2da2c9c3d25cce9e36dc35d1bf6ac51
   languageName: node
   linkType: hard
 
