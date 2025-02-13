@@ -13,25 +13,29 @@ body,
 #root {
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: auto;
     width: 100%;
     overflow: hidden;
+
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
     position: relative;
     background-color: var(--bg-dark);
 }
-.birthday-container {
+/*.birthday-container {
     min-height: 100vh;
     width: 100vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
     background: transparent;
     position: relative;
     z-index: 1;
-}
+}*/
 main {
     position: relative;
     perspective: 2000px;
     overflow: hidden;
+
     height: calc(100vh - 60px); /* Adjust based on nav height */
 }
 
@@ -302,10 +306,18 @@ button:hover {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+
+    main {
+
+        overflow: auto;
+
+
+    }
     .main-layout {
         flex-direction: column;
         height: auto;
         padding: 20px;
+
     }
 
     .left-column,
@@ -319,6 +331,7 @@ button:hover {
     .wishes-container {
         height: auto;
         min-height: 300px;
+
     }
 }
 

@@ -1,51 +1,35 @@
 // src/components/CubeTransition.tsx
 
-import React, { ReactNode } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import React, { useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface CubeTransitionProps {
-    children: ReactNode;
+    children: React.ReactNode;
 }
 
 const CubeTransition: React.FC<CubeTransitionProps> = ({ children }) => {
-    const prefersReducedMotion = useReducedMotion();
+    useEffect(() => {
+        // Add 'no-scroll' class to body when component mounts
+        document.body.classList.add('no-scroll');
 
-    const variants = !prefersReducedMotion
-        ? {
-            initial: { rotateY: 90, opacity: 0 },
-            animate: { rotateY: 0, opacity: 1 },
-            exit: { rotateY: -90, opacity: 0 },
-        }
-        : {
-            initial: { opacity: 0 },
-            animate: { opacity: 1 },
-            exit: { opacity: 0 },
+        // Remove 'no-scroll' class when component unmounts
+        return () => {
+            document.body.classList.remove('no-scroll');
         };
-
-    const transition = {
-        duration: prefersReducedMotion ? 0 : 0.8,
-        ease: 'easeInOut',
-    };
+    }, []);
 
     return (
-        <motion.div
-            className="cube-face"
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            variants={variants}
-            transition={transition}
-            style={{
-                width: '100%',
-                height: 'calc(100vh - 60px)', // Adjust based on nav height
-                position: 'absolute',
-                backfaceVisibility: 'hidden',
-                top: 0,
-                left: 0,
-            }}
-        >
-            {children}
-        </motion.div>
+        <AnimatePresence mode="wait">
+            <motion.div
+                className="cube-container"
+                initial={{ opacity: 0, rotateY: -90 }}
+                animate={{ opacity: 1, rotateY: 0 }}
+                exit={{ opacity: 0, rotateY: 90 }}
+                transition={{ duration: 0.8, ease: 'easeInOut' }}
+            >
+                {children}
+            </motion.div>
+        </AnimatePresence>
     );
 };
 

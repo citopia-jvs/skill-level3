@@ -64,7 +64,8 @@ const AppContent: React.FC = () => {
                     marginTop: '60px',
                     position: 'relative',
                     perspective: '2000px',
-                    overflow: 'hidden',
+                    // Remove overflow property to allow scrolling
+                    // overflow: 'hidden',
                 }}
             >
                 <AnimatePresence mode="wait">

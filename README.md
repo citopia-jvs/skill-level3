@@ -52,6 +52,7 @@ Le **backend** est conçu avec **Node.js, NestJS, Express(avec un adaptateur), T
 ![LangGraph](https://img.shields.io/badge/LangGraph-%231ABC9C.svg?style=for-the-badge&logo=langgraph&logoColor=white)
 ![LangSmith](https://img.shields.io/badge/LangSmith-%23FF4500.svg?style=for-the-badge&logo=langsmith&logoColor=white)
 ![Redis](https://img.shields.io/badge/Redis-%23DC382D.svg?style=for-the-badge&logo=redis&logoColor=white)
+[![DummyJSON](https://img.shields.io/badge/DummyJSON-%2300A19D.svg?style=for-the-badge&logo=json&logoColor=white)](https://dummyjson.com/)
 ![Tavily](https://img.shields.io/badge/Tavily-%23121212.svg?style=for-the-badge&logo=logitech&logoColor=white)
 ![Mistral AI](https://img.shields.io/badge/Mistral_AI-%230D47A1.svg?style=for-the-badge&logo=artstation&logoColor=white)
 
