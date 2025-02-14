@@ -1,4 +1,3 @@
-// src/services/axios.interceptor.ts
 import axios from 'axios';
 
 axios.interceptors.response.use(

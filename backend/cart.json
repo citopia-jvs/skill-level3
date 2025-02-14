@@ -148,5 +148,10 @@
     "id": "baguette",
     "name": "Baguette",
     "url": "https://www.britannica.com/topic/baguette-bread"
+  },
+  {
+    "id": "chocolatine",
+    "name": "Chocolatine",
+    "url": "https://en.wikipedia.org/wiki/Chocolatine"
   }
 ]

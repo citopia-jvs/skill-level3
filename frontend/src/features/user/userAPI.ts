@@ -1,5 +1,3 @@
-// src/features/user/userAPI.ts
-
 import axios from 'axios';
 import { setAvatarUrl, updateLastFetchedInfo } from './userSlice';
 import { AppDispatch } from '@/store/store';

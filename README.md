@@ -5,7 +5,7 @@
 
 L'application est déployée et accessible via ce lien : [Citopia-JVS test](https://skill-level3.vercel.app)
 
-Démarrer le backend (le réveiller): [Citopia-JVS test-backend](https://mistral-zs6l.onrender.com)
+Démarrer le backend (le réveiller): [Citopia-JVS test backend](https://mistral-zs6l.onrender.com)
 
 ![Vercel](https://img.shields.io/badge/Vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
 ![RESTful API](https://img.shields.io/badge/RESTful_API-%23007EC6.svg?style=for-the-badge&logo=api&logoColor=white)
@@ -18,7 +18,7 @@ Démarrer le backend (le réveiller): [Citopia-JVS test-backend](https://mistral
 
 C'est une application conçue pour illustrer une **expérience utilisateur fluide et réactive** en s'appuyant sur un **système multi-agent supervisé**.
 
-Le **frontend** repose sur **React, Redux, TypeScript, Vite, Yarn, Framer Motion**, garantissant une gestion d'état efficace et une architecture évolutive. Grâce à **Vite**, le projet bénéficie d'un **hot reloading instantané** et de performances accrues.
+Le **frontend** repose sur **React, Redux, Redux Saga, TypeScript, Vite, Yarn, Framer Motion, Jest, React Testing Library**, garantissant une gestion d'état efficace et une architecture évolutive. Grâce à **Vite**, le projet bénéficie d'un **hot reloading instantané** et de performances accrues.
 
 ![Vite](https://img.shields.io/badge/Vite-%23FFD700.svg?style=for-the-badge&logo=vite&logoColor=white)
 ![React](https://img.shields.io/badge/React-%2361DAFB.svg?style=for-the-badge&logo=react&logoColor=black)
@@ -28,6 +28,11 @@ Le **frontend** repose sur **React, Redux, TypeScript, Vite, Yarn, Framer Motion
 ![HTML5](https://img.shields.io/badge/HTML5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![Framer Motion](https://img.shields.io/badge/Framer%20Motion-%23BE34D3.svg?style=for-the-badge&logo=data:image/svg+xml;base64,...)
+![Jest](https://img.shields.io/badge/Jest-%23C21325.svg?style=for-the-badge&logo=jest&logoColor=white)
+![Redux Saga](https://img.shields.io/badge/Redux%20Saga-%234D58A7.svg?style=for-the-badge&logo=redux&logoColor=white)
+![Day.js](https://img.shields.io/badge/Day.js-%230E4C6B.svg?style=for-the-badge&logo=javascript&logoColor=white)
+![Leap Year Plugin](https://img.shields.io/badge/Leap%20Year%20Plugin-%2344B7A8.svg?style=for-the-badge&logo=javascript&logoColor=white)
+![React Testing Library](https://img.shields.io/badge/React%20Testing%20Library-%23E33332.svg?style=for-the-badge&logo=jest&logoColor=white)
 #### **Points forts du Frontend :**
 
 - **Développement ultra-rapide avec Vite**, réduisant les temps de compilation.
@@ -90,6 +95,12 @@ cd citopia-project
 cd frontend
 yarn install
 yarn dev
+```
+
+#### **Tests**
+
+```bash
+yarn test
 ```
 
 L'application frontend sera accessible à : `http://localhost:5173`

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../store/store';
-import { fetchUserAvatar } from '../features/user/userAPI';
-import { updateUserInfo, setAvatarUrl } from '../features/user/userSlice';
+import { fetchUserAvatar } from '@/features/user/userAPI';
+import { updateUserInfo, setAvatarUrl } from '@/features/user/userSlice';
 import { getDaysUntilBirthday } from '../utils/dateUtils';
 import { Message } from '../types/api.types';
 import '../styles/Birthday.css';

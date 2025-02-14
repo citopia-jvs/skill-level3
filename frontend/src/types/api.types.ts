@@ -1,4 +1,3 @@
-// src/types/api.types.ts
 export interface BackendResponse {
     status: 'success';
     response: string;
