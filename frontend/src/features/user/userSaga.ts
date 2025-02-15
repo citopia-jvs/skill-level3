@@ -1,4 +1,3 @@
-// userSaga.ts
 import { takeEvery, put, call } from 'redux-saga/effects';
 import { updateUserInfo } from './userSlice';
 import { SagaIterator } from 'redux-saga';

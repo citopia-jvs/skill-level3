@@ -8,11 +8,9 @@ import { Message } from '../types/api.types';
 import '../styles/Birthday.css';
 import { sendQuery } from '../api/wishService';
 
-// Define the type for processing details (adjust as per your structure)
 interface ProcessingDetail {
     step: string;
     result: string;
-    // other properties
 }
 
 const Accueil: React.FC = () => {

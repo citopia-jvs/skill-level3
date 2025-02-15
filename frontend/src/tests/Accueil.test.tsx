@@ -1,4 +1,3 @@
-// src/tests/Accueil.test.tsx
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { store } from '@/store/store';
