@@ -14,11 +14,9 @@ export const getDaysUntilBirthday = (birthDate: string): number => {
     // Check if the birthday is on February 29th and handle the leap year case
     if (birthday.month() === 1 && birthday.date() === 29) {
         if (!nextBirthday.isLeapYear()) {
-            // Move to the next leap year and adjust if needed
             nextBirthday = nextBirthday.add(1, 'year');
             if (!nextBirthday.isLeapYear()) {
-                // If the next year isn't a leap year, fallback to February 28th
-                nextBirthday = nextBirthday.month(1).date(28);
+                nextBirthday = nextBirthday.month(1).date(28); // Fallback to Feb 28th
             }
         }
     }
@@ -28,5 +26,12 @@ export const getDaysUntilBirthday = (birthDate: string): number => {
         nextBirthday = nextBirthday.add(1, 'year');
     }
 
-    return nextBirthday.diff(today, 'day');
+    const daysUntilBirthday = nextBirthday.diff(today, 'day');
+
+    // Ensure if it's the next day, it returns 1
+    if (daysUntilBirthday === 0 && nextBirthday.isAfter(today)) {
+        return 1;
+    }
+
+    return daysUntilBirthday;
 };

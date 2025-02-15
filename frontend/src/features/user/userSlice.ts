@@ -1,10 +1,11 @@
+// src/features/user/userSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface UserState {
     firstName: string;
     lastName: string;
     birthDate: string;
-    avatarUrl: string; // Always a string
+    avatarUrl: string;
     lastFetchedFirstName: string;
     lastFetchedLastName: string;
     lastFetchedBirthDate: string;
@@ -14,7 +15,7 @@ const initialState: UserState = {
     firstName: '',
     lastName: '',
     birthDate: '',
-    avatarUrl: '', // Default avatar (prevents flickering)
+    avatarUrl: '',
     lastFetchedFirstName: '',
     lastFetchedLastName: '',
     lastFetchedBirthDate: '',
@@ -24,20 +25,33 @@ export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        // Updates user information and can handle partial updates
         updateUserInfo: (state, action: PayloadAction<Partial<UserState>>) => {
-            state.firstName = action.payload.firstName ?? state.firstName;
-            state.lastName = action.payload.lastName ?? state.lastName;
-            state.birthDate = action.payload.birthDate ?? state.birthDate;
-            state.avatarUrl = action.payload.avatarUrl ?? state.avatarUrl;
+            if (action.payload.firstName !== undefined) {
+                state.firstName = action.payload.firstName;
+            }
+            if (action.payload.lastName !== undefined) {
+                state.lastName = action.payload.lastName;
+            }
+            if (action.payload.birthDate !== undefined) {
+                state.birthDate = action.payload.birthDate;
+            }
+            if (action.payload.avatarUrl !== undefined) {
+                state.avatarUrl = action.payload.avatarUrl;
+            }
+            if (action.payload.lastFetchedFirstName !== undefined) {
+                state.lastFetchedFirstName = action.payload.lastFetchedFirstName;
+            }
+            if (action.payload.lastFetchedLastName !== undefined) {
+                state.lastFetchedLastName = action.payload.lastFetchedLastName;
+            }
+            if (action.payload.lastFetchedBirthDate !== undefined) {
+                state.lastFetchedBirthDate = action.payload.lastFetchedBirthDate;
+            }
         },
-
-        // Specifically update avatar URL
-        setAvatarUrl: (state, action: PayloadAction<string | null>) => {
-            state.avatarUrl = action.payload ?? ''; // If null, fallback to empty string
+        setAvatarUrl: (state, action: PayloadAction<string>) => {
+            state.avatarUrl = action.payload;
         },
-
-        // Store the last fetched data to avoid unnecessary API calls
+        // Add the updateLastFetchedInfo action
         updateLastFetchedInfo: (state) => {
             state.lastFetchedFirstName = state.firstName;
             state.lastFetchedLastName = state.lastName;
@@ -46,5 +60,11 @@ export const userSlice = createSlice({
     },
 });
 
-export const { updateUserInfo, setAvatarUrl, updateLastFetchedInfo } = userSlice.actions;
+// Export actions
+export const {
+    updateUserInfo,
+    setAvatarUrl,
+    updateLastFetchedInfo  // Export the new action
+} = userSlice.actions;
+
 export default userSlice.reducer;

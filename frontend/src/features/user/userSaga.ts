@@ -1,7 +1,8 @@
+// userSaga.ts
 import { takeEvery, put, call } from 'redux-saga/effects';
-import { updateUserInfo } from './userSlice'; // Replace with correct import path
+import { updateUserInfo } from './userSlice';
+import { SagaIterator } from 'redux-saga';
 
-// Define the shape of your expected JSON data
 interface UserData {
     firstName: string;
     lastName: string;
@@ -9,22 +10,16 @@ interface UserData {
     avatarUrl: string;
 }
 
-// Worker Saga
-function* fetchUserData() {
+export function* fetchUserData(): SagaIterator {
     try {
-// Because redux-saga's 'call(...)' returns 'unknown' in TypeScript,
-// explicitly cast the result as a Response.
         const response = (yield call(fetch, 'https://dummyjson.com/users')) as Response;
 
-// Check if the response is OK (status range 200–299).
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
 
-// Wait for the response to convert to JSON. Cast the resolved value to UserData.
         const data = (yield call([response, response.json])) as UserData;
 
-// Dispatch an action to update your Redux store with the new user info
         yield put(
             updateUserInfo({
                 firstName: data.firstName,
@@ -38,8 +33,8 @@ function* fetchUserData() {
     }
 }
 
-// Watcher Saga
-function* watchUserData() {
+export function* watchUserData(): SagaIterator {
     yield takeEvery('FETCH_USER', fetchUserData);
 }
-    export default watchUserData;
+
+export default watchUserData;
