@@ -13,6 +13,7 @@
 ### Dans cet exercice, vous devrez utiliser :
 - React
 - TypeScript
+- - Ne pas utiliser Expo
 
 ### En option :
 - Ajouter une feature qui vous semble interressante
