@@ -53,3 +53,9 @@ Sur la page d'accueil :
 - Adoptez les bonnes pratiques Git : commits clairs, messages explicites, etc.
 - Bonus
   - Ajoutez des tests unitaires ou d’intégration (exemple : Jest, React Testing Library).
+
+## Lancement du projet
+Lancer un emulateur
+Se placer à la racine du projet
+Lancer la commande *yarn start*
+Dans un autre terminal, toujours depuis la racine du projet, lancer la commande *yarn android*
