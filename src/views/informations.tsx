@@ -1,5 +1,5 @@
 import React, { FunctionComponent, PropsWithChildren, useCallback, useMemo } from 'react';
-import { Button, Text, TouchableOpacity, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import InputText from '../components/input/text.tsx';
 import Separator from '../components/separator.tsx';
 import commonStyles from '../commonStyles.ts';
@@ -8,7 +8,6 @@ import useStore from '../store';
 
 import styles from './informations';
 import dayjs from 'dayjs';
-import { useNavigation } from '@react-navigation/native';
 
 const Label: FunctionComponent<PropsWithChildren> = ({ children }) => (
     <Text style={ styles.label }>{ children }</Text>

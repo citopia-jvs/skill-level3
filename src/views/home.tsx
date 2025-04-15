@@ -11,11 +11,7 @@ import Separator from '../components/separator';
 import commonStyles from '../commonStyles';
 import dayjs from 'dayjs';
 
-interface HomeProps {
-    // Define your props here
-}
-
-const Home: React.FC<HomeProps> = (props) => {
+const Home: React.FC = () => {
     const user = useStore((state) => state.user);
     const [image, setImage] = React.useState<string | null>(null);
     const navigation = useNavigation<RootNavigationProp>();
