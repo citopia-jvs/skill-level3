@@ -55,7 +55,7 @@ Sur la page d'accueil :
   - Ajoutez des tests unitaires ou d’intégration (exemple : Jest, React Testing Library).
 
 ## Lancement du projet
-Lancer un emulateur
-Se placer à la racine du projet
-Lancer la commande *yarn start*
-Dans un autre terminal, toujours depuis la racine du projet, lancer la commande *yarn android*
+- Lancer un emulateur
+- Se placer à la racine du projet
+- Lancer la commande *yarn start*
+- Dans un autre terminal, toujours depuis la racine du projet, lancer la commande *yarn android*

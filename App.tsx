@@ -5,7 +5,6 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 
 function App(): React.JSX.Element {
-  console.log("TEST");
   return (
     <SafeAreaProvider>
       <Root />
