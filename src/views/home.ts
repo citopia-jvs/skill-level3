@@ -6,8 +6,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: commonStyles.stdPaddingLarge,
-        justifyContent: 'center',
-        alignItems: 'center'
+        justifyContent: "space-between"
     },
     text: {
         fontSize: commonStyles.stdFontSizeVeryLarge
@@ -17,7 +16,13 @@ const styles = StyleSheet.create({
         height: 300,
         borderRadius: commonStyles.stdRadiusRegular,
         marginBottom: commonStyles.stdPaddingLarge
+    },
+    content: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center"
     }
+
 
 });
 

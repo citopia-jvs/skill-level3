@@ -65,3 +65,4 @@ Sur la page d'accueil :
 
 ## Fonctionnalité supplémentaires
 - Persistance de l'utilisateur dans l'AsyncStorage. Après avoir entré un utilisateur, relancez l'app ! L'utilisateur est conservé.
+- Possibilité d'ajouter un avatar en prenant une photo avec l'appareil du téléphone.

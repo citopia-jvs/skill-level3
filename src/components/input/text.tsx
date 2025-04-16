@@ -1,6 +1,8 @@
-import React, { FunctionComponent, useRef } from 'react';
+import React, { FunctionComponent, useCallback, useRef } from 'react';
 import { TextInput, View } from 'react-native';
 import styles from './text';
+import { debounce } from 'lodash';
+
 
 type TextProps = {
     value?: string;
@@ -19,6 +21,8 @@ const Text: FunctionComponent<TextProps> =  ({
   const [isFocus, setFocus] = React.useState(autoFocus);
   const inputRef = useRef<TextInput>(null);
 
+  const debouncedTextChange = useCallback(debounce((text: string) => onChange(text), 500), [ onChange ]);
+
   return (
     <View style={!isFocus ? {...styles.container, ...styles.viewBlured} : {...styles.container, ...styles.viewFocused}}>
       <TextInput
@@ -29,7 +33,7 @@ const Text: FunctionComponent<TextProps> =  ({
         onFocus={() => setFocus(true)}
         autoFocus={ autoFocus }
         placeholder={ placeholder }
-        onChangeText={(text) => onChange(text)}
+        onChangeText={ debouncedTextChange }
       />
     </View>
   );

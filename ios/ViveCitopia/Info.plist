@@ -47,6 +47,12 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<key>NSCameraUsageDescription</key>
+	<string>$(PRODUCT_NAME) souhaite accéder à votre appareil photo</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>$(PRODUCT_NAME) souhaite accéder à vos photos</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>$(PRODUCT_NAME) souhaite accéder à votre microphone (pour les vidéos)</string>
 	<false/>
 </dict>
 </plist>

@@ -9,8 +9,9 @@ export default {
     stdRadiusRegular: 15,
 
     stdInterElementLarge: 20,
+    stdInterElementSmall: 5,
 
-    stdColorOrange: "orange",
+    stdColorOrange: "#fc9362",
     stdColorGray: "gray",
     stdColorRed: "red",
 }
