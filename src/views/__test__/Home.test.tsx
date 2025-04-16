@@ -108,4 +108,15 @@ describe('Home Component', () => {
         const image = await findByTestId('userImage');
         expect(image.props.source.uri).toBe(mockImageUrl);
     });
+
+    test("Vérification qu'il n'y a pas d'appel pour récupérer une image s'il n'y a pas d'utilisateur", async () => {
+        useStore.setState({ user: null });
+        
+        render(<Home />);
+        
+        // Vérification que la fonction n'est pas appelée
+        await waitFor(() => {
+          expect(getDummyImage).not.toHaveBeenCalled();
+        });
+    });
 });

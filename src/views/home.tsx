@@ -48,7 +48,10 @@ const Home: React.FC = () => {
 
     useEffect(() => {
         const getImage = async () => {
-            const dummyImage = await getDummyImage(user?.firstname || "John", user?.lastname || "Doe", 300, 300); 
+            if (!user) {
+                return;
+            }
+            const dummyImage = await getDummyImage(user.firstname || "John", user.lastname || "Doe", 300, 300); 
             setImage(dummyImage);
         }    
         getImage();    
@@ -65,15 +68,20 @@ const Home: React.FC = () => {
         return "Changer d'utilisateur";
     }, [ user ]);
 
+    const source =  useMemo(() => {
+        if (!image) {
+            return require('../assets/empty_user.png');
+        }
+        return { uri: image };
+    }, [ image ]);
+
     return (
         <View style={ styles.container }>
-            {image && (
-                <Image
-                    testID='userImage'
-                    source={{ uri: image }}
-                    style={ styles.image }
-                />
-            )}
+            <Image
+                testID='userImage'
+                source={ source }
+                style={ styles.image }
+            />
             <Text style={ styles.text }>{birthdayText }</Text>
             <Separator height={ commonStyles.stdInterElementLarge } />
             <Button

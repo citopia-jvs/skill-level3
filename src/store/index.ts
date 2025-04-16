@@ -8,12 +8,12 @@ export type User = {
 
 type StoreState = {
     user: User | null;
-    setUser: (user: User) => void;
+    setUser: (user: User | null) => void;
 }
 
 const useStore = create<StoreState>((set) => ({
   user: null,
-  setUser: (user: User) => set({ user })
+  setUser: (user: User | null) => set({ user })
 }))
 
 export default useStore;
