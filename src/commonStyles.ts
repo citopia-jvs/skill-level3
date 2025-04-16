@@ -11,5 +11,6 @@ export default {
     stdInterElementLarge: 20,
 
     stdColorOrange: "orange",
-    stdColorGray: "gray"
+    stdColorGray: "gray",
+    stdColorRed: "red",
 }

@@ -62,3 +62,6 @@ Sur la page d'accueil :
 
 ## Lancement des test
 - Dans un terminal, lancer la commande *yarn test*
+
+## Fonctionnalité supplémentaires
+- Persistance de l'utilisateur dans l'AsyncStorage. Après avoir entré un utilisateur, relancez l'app ! L'utilisateur est conservé.

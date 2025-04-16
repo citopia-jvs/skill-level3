@@ -1,4 +1,4 @@
-import React, { use, useEffect, useMemo } from 'react';
+import React, { use, useCallback, useEffect, useMemo } from 'react';
 import { View, Text, Image, Button } from 'react-native';
 
 import styles from "./home";
@@ -13,6 +13,7 @@ import dayjs from 'dayjs';
 
 const Home: React.FC = () => {
     const user = useStore((state) => state.user);
+    const storeUser = useStore((state) => state.setUser);
     const [image, setImage] = React.useState<string | null>(null);
     const navigation = useNavigation<RootNavigationProp>();
 
@@ -49,7 +50,7 @@ const Home: React.FC = () => {
     useEffect(() => {
         const getImage = async () => {
             if (!user) {
-                return;
+                setImage(null);
             }
             const dummyImage = await getDummyImage(user.firstname || "John", user.lastname || "Doe", 300, 300); 
             setImage(dummyImage);
@@ -57,9 +58,9 @@ const Home: React.FC = () => {
         getImage();    
     },  [ user ]);
 
-    const navigateToUserPage = () => {
-        navigation.navigate("Profile");
-    };
+    const navigateToUserPage = useCallback(() => navigation.navigate("Profile"), []);
+
+    const deleteUser = useCallback(() => storeUser(null), []);
 
     const btnTitle = useMemo(() => {
         if (!user) {
@@ -89,6 +90,14 @@ const Home: React.FC = () => {
                 onPress={ navigateToUserPage }
                 color={ commonStyles.stdColorOrange}
             />
+            <Separator height={ commonStyles.stdInterElementLarge } />
+            {user && (
+                <Button
+                    title={ "Supprimer l'utilisateur" }
+                    onPress={ deleteUser }
+                    color={ commonStyles.stdColorRed}
+                />
+            )}
         </View>
     );
 };
