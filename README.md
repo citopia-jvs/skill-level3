@@ -59,3 +59,6 @@ Sur la page d'accueil :
 - Se placer à la racine du projet
 - Lancer la commande *yarn start*
 - Dans un autre terminal, toujours depuis la racine du projet, lancer la commande *yarn android*
+
+## Lancement des test
+- Dans un terminal, lancer la commande *yarn test*

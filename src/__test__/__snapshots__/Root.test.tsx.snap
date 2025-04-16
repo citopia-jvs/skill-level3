@@ -1,0 +1,238 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <RNSScreenStack
+    style={
+      {
+        "flex": 1,
+      }
+    }
+  >
+    <RNSScreen
+      accessibilityElementsHidden={false}
+      activityState={2}
+      collapsable={false}
+      fullScreenSwipeShadowEnabled={true}
+      gestureResponseDistance={
+        {
+          "bottom": -1,
+          "end": -1,
+          "start": -1,
+          "top": -1,
+        }
+      }
+      hasLargeHeader={false}
+      importantForAccessibility="auto"
+      nativeBackButtonDismissalEnabled={false}
+      onAppear={[Function]}
+      onDisappear={[Function]}
+      onDismissed={[Function]}
+      onGestureCancel={[Function]}
+      onHeaderBackButtonClicked={[Function]}
+      onHeaderHeightChange={[Function]}
+      onNativeDismissCancelled={[Function]}
+      onSheetDetentChanged={[Function]}
+      onTransitionProgress={[Function]}
+      onWillAppear={[Function]}
+      onWillDisappear={[Function]}
+      replaceAnimation="push"
+      sheetAllowedDetents={
+        [
+          1,
+        ]
+      }
+      sheetCornerRadius={-1}
+      sheetElevation={24}
+      sheetExpandsWhenScrolledToEdge={true}
+      sheetGrabberVisible={false}
+      sheetInitialDetent={0}
+      sheetInitialDetentIndex={0}
+      sheetLargestUndimmedDetent={-1}
+      sheetLargestUndimmedDetentIndex={-1}
+      stackPresentation="push"
+      style={
+        [
+          [
+            {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+            undefined,
+          ],
+          {
+            "zIndex": undefined,
+          },
+        ]
+      }
+      swipeDirection="horizontal"
+    >
+      <RNSScreenContentWrapper
+        collapsable={false}
+        style={
+          [
+            {
+              "flex": 1,
+            },
+            [
+              {
+                "backgroundColor": "rgb(242, 242, 242)",
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        <RNCSafeAreaView
+          edges={
+            {
+              "bottom": "additive",
+              "left": "additive",
+              "right": "additive",
+              "top": "off",
+            }
+          }
+          style={
+            {
+              "flex": 1,
+            }
+          }
+        >
+          <View
+            style={
+              {
+                "alignItems": "center",
+                "flex": 1,
+                "justifyContent": "center",
+                "padding": 20,
+              }
+            }
+          >
+            <Text
+              style={
+                {
+                  "fontSize": 20,
+                }
+              }
+            >
+              Aucun utilisateur de paramétré
+            </Text>
+            <View
+              style={
+                {
+                  "height": 20,
+                  "width": undefined,
+                }
+              }
+            />
+            <View
+              accessibilityRole="button"
+              accessibilityState={
+                {
+                  "busy": undefined,
+                  "checked": undefined,
+                  "disabled": undefined,
+                  "expanded": undefined,
+                  "selected": undefined,
+                }
+              }
+              accessibilityValue={
+                {
+                  "max": undefined,
+                  "min": undefined,
+                  "now": undefined,
+                  "text": undefined,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                {
+                  "opacity": 1,
+                }
+              }
+            >
+              <View
+                style={
+                  [
+                    {},
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    [
+                      {
+                        "color": "#007AFF",
+                        "fontSize": 18,
+                        "margin": 8,
+                        "textAlign": "center",
+                      },
+                      {
+                        "color": "orange",
+                      },
+                    ]
+                  }
+                >
+                  Ajouter un utilisateur
+                </Text>
+              </View>
+            </View>
+          </View>
+        </RNCSafeAreaView>
+      </RNSScreenContentWrapper>
+      <RNSScreenStackHeaderConfig
+        backButtonInCustomView={false}
+        backTitleFontFamily="System"
+        backTitleVisible={true}
+        backgroundColor="rgb(255, 255, 255)"
+        color="rgb(0, 122, 255)"
+        direction="ltr"
+        disableBackButtonMenu={false}
+        hidden={false}
+        hideBackButton={false}
+        largeTitleFontFamily="System"
+        largeTitleFontWeight="700"
+        largeTitleHideShadow={false}
+        pointerEvents="box-none"
+        style={
+          {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "position": "absolute",
+            "width": "100%",
+          }
+        }
+        title="Accueil"
+        titleColor="rgb(28, 28, 30)"
+        titleFontFamily="System"
+        titleFontWeight="600"
+        topInsetEnabled={false}
+        translucent={false}
+      />
+    </RNSScreen>
+  </RNSScreenStack>
+</RNCSafeAreaProvider>
+`;

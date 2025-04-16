@@ -69,6 +69,7 @@ const Home: React.FC = () => {
         <View style={ styles.container }>
             {image && (
                 <Image
+                    testID='userImage'
                     source={{ uri: image }}
                     style={ styles.image }
                 />
