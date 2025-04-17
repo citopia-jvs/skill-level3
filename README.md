@@ -53,3 +53,16 @@ Sur la page d'accueil :
 - Adoptez les bonnes pratiques Git : commits clairs, messages explicites, etc.
 - Bonus
   - Ajoutez des tests unitaires ou d’intégration (exemple : Jest, React Testing Library).
+
+## Lancement du projet
+- Lancer un emulateur
+- Se placer à la racine du projet
+- Lancer la commande *yarn start*
+- Dans un autre terminal, toujours depuis la racine du projet, lancer la commande *yarn android*
+
+## Lancement des test
+- Dans un terminal, lancer la commande *yarn test*
+
+## Fonctionnalité supplémentaires
+- Persistance de l'utilisateur dans l'AsyncStorage. Après avoir entré un utilisateur, relancez l'app ! L'utilisateur est conservé.
+- Possibilité d'ajouter un avatar en prenant une photo avec l'appareil du téléphone.
