@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useCallback, useRef } from 'react';
-import { TextInput, View } from 'react-native';
+import { StyleSheet, TextInput, View } from 'react-native';
 import styles from './text';
 import { debounce } from 'lodash';
 
@@ -21,13 +21,18 @@ const Text: FunctionComponent<TextProps> =  ({
   const [isFocus, setFocus] = React.useState(autoFocus);
   const inputRef = useRef<TextInput>(null);
 
-  const debouncedTextChange = useCallback(debounce((text: string) => onChange(text), 500), [ onChange ]);
+  const debouncedTextChange = useCallback(debounce((text: string) => onChange(text), 750), [ onChange ]);
+
+  const containerStyle = React.useMemo(() => {
+    return isFocus 
+      ? StyleSheet.compose(styles.container, styles.viewFocused) 
+      : StyleSheet.compose(styles.container, styles.viewBlured);
+  }, [ isFocus ]);
 
   return (
-    <View style={!isFocus ? {...styles.container, ...styles.viewBlured} : {...styles.container, ...styles.viewFocused}}>
+    <View style={ containerStyle }>
       <TextInput
         ref={ inputRef }
-        style={ styles.textContainer }
         defaultValue={ value }
         onBlur={() => setFocus(false)}
         onFocus={() => setFocus(true)}

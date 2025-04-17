@@ -1,13 +1,12 @@
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { View, Text, Image, Button } from 'react-native';
 import useStore from '../store';
-import { getDummyImage } from '../lib/user';
+import { getDummyImage, getNbrDaysUntilBirthday } from '../lib/user';
 import { useNavigation } from '@react-navigation/native';
 import { RootNavigationProp } from '../index';
 import Separator from '../components/separator';
 import dayjs from 'dayjs';
 import PhotoPicker from '../components/input/photoPicker.tsx';
-import { debounce } from 'lodash';
 
 import styles from "./home";
 import commonStyles from '../commonStyles';
@@ -24,23 +23,7 @@ const Home: React.FC = () => {
             return "Aucune date de naissance de paramétré";
         }
 
-        const today = dayjs().startOf('day');
-        const birthDate = dayjs(user.birthday).startOf('day');
-
-        let nextBirthday = dayjs(new Date(
-            today.year(),
-            birthDate.month(),
-            birthDate.date()
-        )).startOf('day');
-        
-        // Si cette date est déjà passée, on prend l'anniversaire de l'année prochaine
-        if (nextBirthday.isBefore(today)) {
-            nextBirthday = nextBirthday.add(1, 'year');
-        }
-
-        // On calcule le nombre de jours entre aujourd'hui et le prochain anniversaire
-        const daysUntilBirthday = nextBirthday.diff(today, 'day');
-
+        const daysUntilBirthday = getNbrDaysUntilBirthday(user.birthday);
 
         if (daysUntilBirthday === 0) {
             return "Joyeux anniversaire ! 🎉";
@@ -66,10 +49,6 @@ const Home: React.FC = () => {
         getImage();    
     },  [ user ]);
 
-    const navigateToUserPage = useCallback(() => navigation.navigate("Profile"), []);
-
-    const deleteUser = useCallback(() => storeUser(null), []);
-
     const btnTitle = useMemo(() => {
         if (!user) {
             return "Ajouter un utilisateur";
@@ -84,11 +63,9 @@ const Home: React.FC = () => {
         return { uri: image };
     }, [ image ]);
 
-	const updateUserAvatar = useCallback((uri: string | null) => storeUserAvatar(uri), [ user ]);
-	
-	const deleteAvatar = useCallback(() => updateUserAvatar(null), [ updateUserAvatar ]);
-
-	const deleteAvatarBtn = useMemo(() => {
+    const updateUserAvatar = useCallback((uri: string | null) => storeUserAvatar(uri), [ user ]);
+    const deleteAvatar = useCallback(() => updateUserAvatar(null), [ updateUserAvatar ]);
+    const deleteAvatarBtn = useMemo(() => {
 		if (!user?.avatar) {
 			return null;
 		}	
@@ -100,6 +77,10 @@ const Home: React.FC = () => {
 		);
 	}, [ user ]);
 
+    const navigateToUserPage = useCallback(() => navigation.navigate("Profile"), [ navigation ]);
+
+    const deleteUser = useCallback(() => storeUser(null), []);
+
     return (
         <View style={ styles.container }>
 			<View style={ styles.content}>
@@ -108,7 +89,7 @@ const Home: React.FC = () => {
 					source={ source }
 					style={ styles.image }
 				/>
-				<PhotoPicker title="Ajouter un avatar" onFileSelected={ updateUserAvatar } />
+				{ user && (<PhotoPicker title="Ajouter un avatar" onFileSelected={ updateUserAvatar } />) }
 				{ deleteAvatarBtn }
 				<Separator height={commonStyles.stdInterElementLarge} />
 				<Text style={ styles.text }>{birthdayText }</Text>

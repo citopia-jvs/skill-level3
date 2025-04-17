@@ -28,7 +28,7 @@ const Informations: React.FC = () => {
                 <TouchableOpacity onPress={() => setDisplayDatePicker(true)}>
                     <Text style={ styles.selectDate }>Sélectionner</Text>
                 </TouchableOpacity>
-            )
+            );
         } else {
             return (
                 <View style={ styles.displayDateSelectedContainer}>
@@ -37,7 +37,7 @@ const Informations: React.FC = () => {
                         <Text style={ styles.selectDate }>Modifier</Text>
                     </TouchableOpacity>
                 </View>
-            )
+            );
         }
     }, [ birthday ]);
 
@@ -69,7 +69,6 @@ const Informations: React.FC = () => {
             <Label>Votre date de naissance</Label>
             { displayBirthday }
             { displayDatePicker && <DatePicker value={ birthday } onChange={ setDateAndClosePicker } onCancel={() => setDisplayDatePicker(false) } /> }
-            <Separator height={ commonStyles.stdInterElementLarge } />
         </View>
     );
 };

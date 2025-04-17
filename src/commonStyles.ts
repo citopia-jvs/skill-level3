@@ -14,4 +14,6 @@ export default {
     stdColorOrange: "#fc9362",
     stdColorGray: "gray",
     stdColorRed: "red",
+
+    stdRadiusSmall: 5
 }

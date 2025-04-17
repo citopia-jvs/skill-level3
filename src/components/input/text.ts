@@ -1,25 +1,22 @@
 import { StyleSheet } from 'react-native';
 
+import commonStyles from '../../commonStyles';
+
 const styles = StyleSheet.create({
   container: {
     borderWidth: 1,
-    padding: 5,
+    padding: commonStyles.stdPaddingSmall,
     flexDirection: 'row',
     justifyContent: 'space-between',
     backgroundColor: 'white',
-    borderRadius: 5,
-    width: "100%",
-    alignItems: "center"
+    borderRadius: commonStyles.stdRadiusSmall
   },
   viewFocused: {
     borderColor: '#fa7251'
   },
   viewBlured: {
     borderColor: 'grey',
-  },
-  textContainer: {
-    flexGrow: 1
-  }  
+  }
 })
 
 export default styles;

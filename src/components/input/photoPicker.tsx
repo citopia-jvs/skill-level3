@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'react-native';
-import { launchCamera } from 'react-native-image-picker';
+import { CameraOptions, ImagePickerResponse, launchCamera } from 'react-native-image-picker';
 
 interface PhotoPickerProps {
     title: string;
@@ -9,16 +9,16 @@ interface PhotoPickerProps {
 
 const PhotoPicker: React.FC<PhotoPickerProps> = ({ title = "Prendre une photo", onFileSelected }) => {
     const openCamera = () => {
-        const options = {
+        const options: CameraOptions = {
           mediaType: 'photo',
           quality: 0.5
         };
     
-        launchCamera(options, (response) => {
+        launchCamera(options, (response: ImagePickerResponse) => {
           if (!response.didCancel && !response.errorCode) {
             const uri = response.assets?.[0]?.uri;
             if (uri) {
-				onFileSelected(uri)
+				      onFileSelected(uri)
             }
           }
         });
