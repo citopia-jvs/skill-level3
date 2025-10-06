@@ -4,7 +4,7 @@
 - Les travaux devront être testables sans aucune modification à apporter au code ou au paramétrage, et si besoin, en suivant une documentation pas-à-pas.
 - Utilisez tous les outils nécessaires pour compléter les tâches.
 - Portez une attention particulière à l'historique Git, comme s'il s'agissait d'une situation réelle en projet.
-- Ne pas utiliser l'IA
+- On veut tester vos skills et pas ceux de l'IA 😄
 
 ## Finalisation de l'exercice
 - Créez une pull request sur le dépôt avec votre travail.
