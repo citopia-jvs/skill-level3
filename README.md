@@ -8,7 +8,7 @@
 
 ## Finalisation de l'exercice
 - Créez une pull request sur le dépôt avec votre travail.
-- Le travail doit être testable et documenté.
+- Le travail doit être facilement executable.
 
 ## Contraintes
 ### Dans cet exercice, vous devrez utiliser :
