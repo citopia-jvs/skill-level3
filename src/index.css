@@ -1,15 +1,45 @@
 body {
   margin: 0;
   padding: 0;
+  background: #0D1015;
+  color: white;
 } 
 
 nav {
   padding: 12px;
+  background-color: #101E35;
   border-bottom: 1px solid #cfcfcf;
+  margin: 0 auto;
+  display: flex;
+  gap: 48px;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-link {
   margin-right: 13px;
   text-decoration: none;
-  color: #333;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 6px 4px;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #00CCFF;
+}
+
+.nav-link.active {
+  color: #00CCFF;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #00CCFF;
 }

@@ -1,13 +1,13 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import { Home } from './pages/Home';
-import { Informations } from './pages/Informations';
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
+import { Home } from './pages/Home/Home';
+import { Informations } from './pages/Informations/Informations';
 
 export default function App() {
   return (
     <BrowserRouter>
       <nav>
-        <Link to="/" className="nav-link">Accueil</Link>
-        <Link to="/informations" className="nav-link">Informations</Link>
+        <NavLink to="/" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>Accueil</NavLink>
+        <NavLink to="/informations" className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}>Informations</NavLink>
       </nav>
 
       <Routes>

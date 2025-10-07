@@ -1,0 +1,15 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.dummy-image {
+  margin-bottom: 20px;
+}
+
+.birthday-info {
+  font-size: 1.2rem;
+  color: white;
+}
