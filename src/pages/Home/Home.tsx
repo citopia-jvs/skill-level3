@@ -1,6 +1,7 @@
-import { useUserStore } from "../store/userStore";
+import { useUserStore } from "../../store/userStore";
 import React, { useEffect, useState } from "react";
-import { daysLeft } from "../utils/date";
+import { daysLeft } from "../../utils/date";
+import './Home.css'
 
 export const Home: React.FC = () => {
     const { name, firstName, birthDate } = useUserStore(); // User info from store
@@ -11,7 +12,7 @@ export const Home: React.FC = () => {
     useEffect(() => {
         if (!name || !firstName) return;
         const encodedName = encodeURIComponent(`Bonjour ${firstName} ${name} !`);
-        const url = `https://dummyjson.com/image/600x200/FF426D/ffffff?text=${encodedName}`;
+        const url = `https://dummyjson.com/image/600x200/101E35/00CCFF?text=${encodedName}&fontSize=26`;
 
         fetch(url)
             .then(response => {
@@ -22,9 +23,13 @@ export const Home: React.FC = () => {
     }, [firstName, name]);
 
     return (
-    <div>
+    <section className="home">
+        <div className="dummy-image">
         {imgDummy ? <img src={imgDummy} alt="User Dummy" /> : <p> Veuillez renseigner votre nom et prénom.</p>}
-        {birthDate ? <p>Il reste {days} jour{days > 1 ? 's' : ''} avant votre anniversaire.</p> : <p>Veuillez renseigner votre date de naissance.</p>}
-    </div>
+        </div>
+        <div className="birthday-info">
+        {birthDate ? <p>Il reste... {days} jour{days > 1 ? 's' : ''} avant votre anniversaire !</p> : <p>Veuillez renseigner votre date de naissance.</p>}
+        </div>
+    </section>
     );
 }
