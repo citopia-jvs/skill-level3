@@ -1,54 +1,75 @@
-# Test technique Citopia
-## Objectif
-- Le test doit être réalisé en utilisant ce dépôt comme base.
-- Les travaux devront être testables sans aucune modification à apporter au code ou au paramétrage, et si besoin, en suivant une documentation pas-à-pas.
-- Utilisez tous les outils nécessaires pour compléter les tâches.
-- Portez une attention particulière à l'historique Git, comme s'il s'agissait d'une situation réelle en projet.
-- On veut tester vos skills et pas ceux de l'IA 😄
+# React + TypeScript + Vite
 
-## Finalisation de l'exercice
-- Créez une pull request sur le dépôt avec votre travail.
-- Le travail doit être facilement executable.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Contraintes
-### Dans cet exercice, vous devrez utiliser :
-- React
-- TypeScript
+Currently, two official plugins are available:
 
-### En option :
-- Ajouter une feature qui vous semble interressante
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Exercices à réaliser
+## React Compiler
 
-### R1 : Création de l'application
-Créez une application fictive comportant les pages suivantes : Accueil, Informations.
+The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
 
-- La page d'accueil devra afficher le contenu défini en R4.
-- La page Informations devra afficher le contenu défini en R2.
-- L'application devra intégrer une navigation permettant de passer d'une page à l'autre.
-- L'application doit pouvoir être facilement lancée en mode développement (avec Hot Reloading) et compilée simplement pour une mise en production.
+Note: This will impact Vite dev & build performances.
 
-### R2 : Création d'un formulaire utilisateur
-Ajoutez un formulaire sur la page Informations comportant les champs suivants :
+## Expanding the ESLint configuration
 
-- Nom
-- Prénom
-- Date de naissance
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-### R3 : Mise à jour automatique des données
-Les modifications effectuées dans le formulaire doivent être enregistrées dans un état local sans cliquer sur un bouton "Enregistrer".
-Pour ce faire veillez utiliser une solution de *state-management*
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-### R4 : Affichage dynamique sur la page d'accueil
-Sur la page d'accueil :
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-- Faites un appel à l'API DummyJSON (https://dummyjson.com/docs) pour générer une image dynamique basée sur les données utilisateur (prénom et nom).
-- L'image sera a afficher au dessus de la phrase : "Votre anniversaire est dans *X* jours" avec *X* le nombre de jours avant la date d'anniversaire spécifiée dans la partie Informations.
-- Attention aux champs qui ne seraient pas encore définis
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-## Points d'attention
-- Organisez votre code pour qu’il soit lisible et maintenable.
-- Fournissez une documentation claire sur la manière d'exécuter, tester et déployer le projet.
-- Adoptez les bonnes pratiques Git : commits clairs, messages explicites, etc.
-- Bonus
-  - Ajoutez des tests unitaires ou d’intégration (exemple : Jest, React Testing Library).
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
