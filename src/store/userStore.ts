@@ -1,4 +1,5 @@
 import {create} from 'zustand'
+import { persist } from 'zustand/middleware'
 
 interface UserState {
   name: string
@@ -9,11 +10,14 @@ interface UserState {
   setBirthDate: (birthDate: string) => void
 }
 
-export const useUserStore = create<UserState>((set) => ({
-  name: '',
-  firstName: '',
-  birthDate: '',
-  setName: (name) => set({ name }),
-  setFirstName: (firstName) => set({ firstName }),
-  setBirthDate: (birthDate) => set({ birthDate }),
-}))
+export const useUserStore = create<UserState>()(persist(
+    (set) => ({
+        name: '',
+        firstName: '',
+        birthDate: '',
+        setName: (name) => set({ name }),
+        setFirstName: (firstName) => set({ firstName }),
+        setBirthDate: (birthDate) => set({ birthDate }),
+    }),
+    { name: 'user-key' }
+));
