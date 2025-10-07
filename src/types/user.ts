@@ -4,7 +4,7 @@ export type User = {
   birthDate: string;
 };
 
-export interface UserStore {
+export interface UserStore extends User {
   setFirstName: (firstName: string) => void;
   setLastName: (lastName: string) => void;
   setBirthDate: (birthDate: string) => void;
