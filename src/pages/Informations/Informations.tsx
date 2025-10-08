@@ -9,12 +9,12 @@ export const Informations: React.FC = () => {
       // Form to update the user information in the store
       <form>
         <div>
-        <label> Nom: </label>
-        <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} />
-        <label> Prénom: </label>
-        <input type="text" name="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
-        <label> Date de naissance: </label>
-        <input type="date" name="birthDate" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} />
+        <label htmlFor="name"> Nom: </label>
+        <input type="text" id='name' name="name" value={name} onChange={(e) => setName(e.target.value)} />
+        <label htmlFor="firstName"> Prénom: </label>
+        <input type="text" id='firstName' name="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+        <label htmlFor="birthDate"> Date de naissance: </label>
+        <input type="date" id='birthDate' name="birthDate" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} />
         </div>
       </form>
     )
