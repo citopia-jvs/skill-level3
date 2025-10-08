@@ -12,9 +12,9 @@
 }
 
 .cd-box {
-  background-color: #101E35;
-  color: #ffffff;     
-  border: 1px solid #00CCFF;
+  background-color: var(--bg2);
+  color: var(--text);     
+  border: 1px solid var(--evidence);
   border-radius: 6px;
   padding: 10px 10px;
   min-height: 72px;
@@ -28,7 +28,7 @@
 .cd-text {
   display: block;
   margin-top: 8px;
-  color: #c9d1d9;
+  color: var(--text);
   font-size: 1rem;
   letter-spacing: 0.3px;
 }

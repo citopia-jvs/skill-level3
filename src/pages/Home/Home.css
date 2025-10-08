@@ -11,7 +11,7 @@
 
 .birthday-info {
   font-size: 1.2rem;
-  color: white;
+  color: var(--text);
   text-align: center;
 }
 
