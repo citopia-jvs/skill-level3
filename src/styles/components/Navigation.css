@@ -1,61 +1,58 @@
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 2rem;
-  background-color: var(--color-bg-secondary);
-  border-bottom: 1px solid var(--color-border);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:.8rem 1.4rem;
+  background: var(--color-bg-alt);
+  border:1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  max-width: 1100px;
+  margin: .75rem auto 1.2rem;
+  width:100%;
+  box-shadow: var(--shadow-xs);
+  gap:1.25rem;
 }
 
 nav > div {
-  display: flex;
-  gap: 1.5rem;
+  display:flex;
+  gap: .9rem;
 }
 
 nav a {
-  font-size: 1.1em;
+  color: var(--color-text-secondary);
+  font-size:.95rem;
+  font-weight:500;
+  padding:.45em .75em;
+  border-radius: var(--radius-sm);
+  position: relative;
+  transition: background var(--dur-fast), color var(--dur-fast);
+}
+nav a:hover {
+  background: var(--color-bg-alt2);
   color: var(--color-text-primary);
-  font-weight: 500;
-  padding: 0.25em 0.5em;
-  border-radius: 4px;
-  transition: background-color 0.2s, color 0.2s;
 }
 
-nav a:hover,
-nav a:focus-visible {
-  background-color: var(--color-bg-tertiary);
-  color: var(--color-accent-primary);
-  outline: none;
+nav a[aria-current="page"] {
+  color: var(--color-text-primary);
+  background: var(--color-accent-muted-bg);
+  border:1px solid var(--color-border);
 }
 
 nav button {
-  border-radius: 50%;
-  padding: 0.55em 0.7em;
-  font-size: 1.3em;
-  background: var(--color-bg-primary);
+  background: var(--color-bg-base);
   color: var(--color-accent-primary);
-  border: 1.5px solid var(--color-border);
-  transition: border-color 0.25s, background-color 0.25s, color 0.25s;
+  border:1px solid var(--color-border);
+  padding:.45em .65em;
+  font-size:1.15rem;
+  border-radius: var(--radius-sm);
+  box-shadow:none;
 }
-
-nav button:hover,
-nav button:focus-visible {
-  border-color: var(--color-accent-primary);
-  background-color: var(--color-bg-tertiary);
+nav button:hover {
+  background: var(--color-bg-alt2);
   color: var(--color-accent-hover);
-  outline: none;
 }
 
-@media (max-width: 600px) {
-  nav {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-  }
-  nav > div {
-    gap: 1rem;
-  }
-  nav button {
-    margin-top: 0.5rem;
-  }
+@media (max-width: 680px) {
+  nav { flex-wrap: wrap; padding:.7rem 1rem; }
+  nav > div { flex-wrap:wrap; }
 }

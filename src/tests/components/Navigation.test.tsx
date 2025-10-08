@@ -1,88 +1,81 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
-import Navigation from "../../components/Layout/Navigation";
-import * as useThemeModule from "../../hooks/useTheme";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { render, screen, fireEvent, cleanup } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 
-// Mock du hook useTheme
-vi.mock("../../hooks/useTheme");
+let mockIsDark = false;
+const toggleThemeMock = vi.fn();
+
+vi.mock("../../hooks/useTheme", () => ({
+  useTheme: () => ({
+    isDark: mockIsDark,
+    toggleTheme: toggleThemeMock,
+  }),
+}));
+
+import Navigation from "../../components/Layout/Navigation";
 
 describe("Navigation", () => {
-  const renderWithRouter = (component: React.ReactElement) => {
-    return render(<BrowserRouter>{component}</BrowserRouter>);
-  };
-
   beforeEach(() => {
+    cleanup();
+    mockIsDark = false;
+    toggleThemeMock.mockClear();
+  });
+
+  afterEach(() => {
     vi.clearAllMocks();
   });
 
   it("devrait afficher les liens de navigation", () => {
-    vi.mocked(useThemeModule.useTheme).mockReturnValue({
-      isDark: false,
-      isLight: true,
-      isSystem: false,
-      theme: "light",
-      effectiveTheme: "light",
-      toggleTheme: vi.fn(),
-      setTheme: vi.fn(),
-    });
-
-    renderWithRouter(<Navigation />);
-
-    expect(screen.getByText("Accueil")).toBeInTheDocument();
-    expect(screen.getByText("Informations")).toBeInTheDocument();
-  });
-
-  it("devrait afficher l'icône de thème clair lorsque le thème est sombre", () => {
-    vi.mocked(useThemeModule.useTheme).mockReturnValue({
-      isDark: true,
-      isLight: false,
-      isSystem: false,
-      theme: "dark",
-      effectiveTheme: "dark",
-      toggleTheme: vi.fn(),
-      setTheme: vi.fn(),
-    });
-
-    renderWithRouter(<Navigation />);
-
-    expect(screen.getByLabelText("Changer le thème")).toHaveTextContent("☀️");
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <Navigation />
+      </MemoryRouter>
+    );
+    expect(screen.getByRole("link", { name: /accueil/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("link", { name: /informations/i })
+    ).toBeInTheDocument();
   });
 
   it("devrait afficher l'icône de thème sombre lorsque le thème est clair", () => {
-    vi.mocked(useThemeModule.useTheme).mockReturnValue({
-      isDark: false,
-      isLight: true,
-      isSystem: false,
-      theme: "light",
-      effectiveTheme: "light",
-      toggleTheme: vi.fn(),
-      setTheme: vi.fn(),
+    mockIsDark = false;
+    render(
+      <MemoryRouter>
+        <Navigation />
+      </MemoryRouter>
+    );
+    const btn = screen.getByRole("button", {
+      name: /activer le thème sombre/i,
     });
-
-    renderWithRouter(<Navigation />);
-
-    expect(screen.getByLabelText("Changer le thème")).toHaveTextContent("🌙");
+    expect(btn).toBeInTheDocument();
+    expect(btn).toHaveTextContent("🌙");
   });
 
-  it("devrait appeler toggleTheme lors du clic sur le bouton de changement de thème", () => {
-    const toggleThemeMock = vi.fn();
-
-    vi.mocked(useThemeModule.useTheme).mockReturnValue({
-      isDark: false,
-      isLight: true,
-      isSystem: false,
-      theme: "light",
-      effectiveTheme: "light",
-      toggleTheme: toggleThemeMock,
-      setTheme: vi.fn(),
+  it("devrait afficher l'icône de thème clair lorsque le thème est sombre", () => {
+    mockIsDark = true;
+    render(
+      <MemoryRouter>
+        <Navigation />
+      </MemoryRouter>
+    );
+    const btn = screen.getByRole("button", {
+      name: /activer le thème clair/i,
     });
+    expect(btn).toBeInTheDocument();
+    expect(btn).toHaveTextContent("☀️");
+  });
 
-    renderWithRouter(<Navigation />);
-
-    const button = screen.getByLabelText("Changer le thème");
-    button.click();
-
+  it("devrait appeler toggleTheme lors du clic sur le bouton", () => {
+    mockIsDark = false;
+    render(
+      <MemoryRouter>
+        <Navigation />
+      </MemoryRouter>
+    );
+    const btn = screen.getByRole("button", {
+      name: /activer le thème sombre/i,
+    });
+    fireEvent.click(btn);
     expect(toggleThemeMock).toHaveBeenCalledTimes(1);
   });
 });

@@ -1,5 +1,5 @@
 import { useTheme } from "../../hooks/useTheme";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../../styles/components/Navigation.css";
 
 const Navigation = () => {
@@ -8,11 +8,26 @@ const Navigation = () => {
   return (
     <nav>
       <div>
-        <Link to="/">Accueil</Link>
-        <Link to="/informations">Informations</Link>
+        <NavLink to="/" end>
+          {({ isActive }) => (
+            <span aria-current={isActive ? "page" : undefined}>Accueil</span>
+          )}
+        </NavLink>
+        <NavLink to="/informations">
+          {({ isActive }) => (
+            <span aria-current={isActive ? "page" : undefined}>
+              Informations
+            </span>
+          )}
+        </NavLink>
       </div>
-
-      <button onClick={toggleTheme} aria-label="Changer le thème">
+      <button
+        type="button"
+        onClick={toggleTheme}
+        aria-label={
+          isDark ? "Activer le thème clair" : "Activer le thème sombre"
+        }
+      >
         {isDark ? "☀️" : "🌙"}
       </button>
     </nav>

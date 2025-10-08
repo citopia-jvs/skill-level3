@@ -1,55 +1,43 @@
 .user-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  max-width: 400px;
-  margin: 2rem auto 0 auto;
-  padding: 2rem 1.5rem;
-  background-color: var(--color-bg-secondary);
-  border-radius: 12px;
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.07);
-  border: 1px solid var(--color-border);
+  width:100%;
+  max-width:460px;
+  display:flex;
+  flex-direction:column;
+  gap:1.15rem;
+  background: var(--color-bg-alt);
+  border:1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding:1.6rem 1.4rem 1.8rem;
+  box-shadow: var(--shadow-sm);
 }
 
 .form-field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  display:flex;
+  flex-direction:column;
+  gap:.45rem;
 }
 
 .form-field label {
-  font-size: 1em;
-  font-weight: 500;
-  color: var(--color-text-primary);
-  margin-bottom: 0.2em;
+  font-size:.8rem;
+  font-weight:600;
+  letter-spacing:.5px;
+  text-transform:uppercase;
+  color: var(--color-text-tertiary);
 }
 
 .form-field input[type="text"],
 .form-field input[type="date"] {
-  padding: 0.5em 0.8em;
-  font-size: 1em;
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
-  background-color: var(--color-bg-primary);
-  color: var(--color-text-primary);
-  transition: border-color 0.2s;
-}
-
-.form-field input:focus {
-  border-color: var(--color-accent-primary);
-  outline: 2px solid var(--color-border-focus);
+  font-size:.95rem;
+  font-weight:500;
+  background: var(--input-bg);
 }
 
 .error {
   color: var(--color-error);
-  font-size: 0.95em;
-  margin-top: 0.15em;
-  font-weight: 500;
+  font-size:.75rem;
+  font-weight:500;
 }
 
 @media (max-width: 600px) {
-  .user-form {
-    max-width: 95vw;
-    padding: 1rem 0.5rem;
-  }
+  .user-form { padding:1.25rem 1rem 1.4rem; }
 }

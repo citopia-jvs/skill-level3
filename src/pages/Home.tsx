@@ -2,30 +2,47 @@ import "../styles/pages/Home.css";
 import { useUserStore } from "../stores/userStore";
 import { useBirthday } from "../hooks/useBirthday";
 import { getUserImageUrl } from "../services/api";
+import { useEffect, useState } from "react";
 
 const Home = () => {
   const { firstName, lastName, birthDate } = useUserStore();
-  const birthdayInfo = useBirthday(birthDate);
+  const hasAllIdentity = Boolean(firstName && lastName && birthDate);
+  const birthdayInfo = useBirthday(hasAllIdentity ? birthDate : "");
+  const [loaded, setLoaded] = useState(false);
 
   const imageUrl =
     firstName && lastName ? getUserImageUrl(firstName, lastName) : null;
 
-  return (
-    <main className="home-page">
-      <h1>Accueil</h1>
+  useEffect(() => {
+    setLoaded(false);
+  }, [imageUrl]);
 
-      {firstName && lastName && imageUrl && (
-        <img
-          src={imageUrl}
-          alt={`Avatar de ${firstName} ${lastName}`}
-          className="user-avatar"
-        />
+  return (
+    <main className="home-page fade-in">
+      <h1>Accueil</h1>
+      <p className="hero-intro">
+        Visualisation simple de vos informations et du prochain anniversaire.
+      </p>
+
+      {imageUrl && (
+        <div className="user-avatar-wrapper">
+          {!loaded && <div className="avatar-skeleton" aria-hidden="true" />}
+          <img
+            src={imageUrl}
+            alt={`Avatar de ${firstName} ${lastName}`}
+            className={`user-avatar ${loaded ? "loaded" : ""}`}
+            onLoad={() => setLoaded(true)}
+            onError={() => setLoaded(true)}
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
       )}
 
-      {birthDate && birthdayInfo ? (
-        <div className="birthday-message">
+      {hasAllIdentity && birthdayInfo ? (
+        <div className="birthday-message" aria-live="polite">
           {birthdayInfo.isTodayBirthday ? (
-            <span>🎉 Joyeux anniversaire!</span>
+            <span>🎉 Joyeux anniversaire {firstName} !</span>
           ) : (
             <span>
               Votre anniversaire est dans{" "}
@@ -35,10 +52,10 @@ const Home = () => {
           )}
         </div>
       ) : (
-        <div className="birthday-message warning">
+        <div className="birthday-message warning" aria-live="polite">
           <span>
-            Renseignez votre prénom, nom et date de naissance dans
-            "Informations".
+            Complétez vos informations (prénom, nom, date) dans la page{" "}
+            <strong>Informations</strong>.
           </span>
         </div>
       )}
