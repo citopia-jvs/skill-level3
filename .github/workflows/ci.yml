@@ -18,7 +18,9 @@ jobs:
   test:
     name: Tests & Coverage
     runs-on: ubuntu-latest
-
+    env:
+      TZ: UTC
+      CI: true
     steps:
       - name: Checkout
         uses: actions/checkout@v4
