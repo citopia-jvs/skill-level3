@@ -1,0 +1,65 @@
+/* =========================================================
+   Navbar.css — Style de la barre de navigation principale
+   - Positionnement fixe en haut de page
+   - Responsive mobile / desktop
+   ========================================================= */
+   
+/* Mobile-first */
+* {
+  box-sizing: border-box;
+}
+
+/* Conteneur principal */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ee6b47;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;    
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .logo {
+    width: 120px;
+    height: auto;
+}
+
+/* Liens de navigation */
+.links {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.links .menuItem {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.links .menuItem:hover {
+  color: #F5E042;
+}
+
+/* Media queries : Desktop & tablette */
+@media (min-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+    }
+
+    .links {
+        flex-direction: row;
+        gap: 2rem;
+    }
+}
