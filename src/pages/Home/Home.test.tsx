@@ -31,7 +31,7 @@ test("if date is missing, show instruction message", () => {
     ).toBeInTheDocument();
 });
 
-test("if name/firstname + date are present, show DummyJSON image and birthday message", async () => {
+test("if name/firstname + date are present, show DummyJSON image and birthday message and countdown", async () => {
     const firstName = "Nassim";
     const name = "Mourabit";
 
@@ -61,4 +61,7 @@ test("if name/firstname + date are present, show DummyJSON image and birthday me
     expect(
         screen.getByText(/Il reste\.\.\..*avant votre anniversaire !/i)
     ).toBeInTheDocument();
+
+    const countdownGroup = screen.getByRole("group", { name: /compteur avant anniversaire/i });
+    expect(countdownGroup).toBeInTheDocument();
 });
