@@ -1,93 +1,370 @@
 .home-page {
-  width:100%;
-  max-width:1100px;
-  margin:0 auto;
-  padding: 2.4rem 1.4rem 3rem;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:1.4rem;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 3vh, 2.5rem) clamp(1rem, 3vw, 2rem) clamp(2rem, 4vh, 3rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1.25rem, 3vh, 2rem);
+}
+
+.home-page h1 {
+  text-align: center;
+  font-size: clamp(1.875rem, 1.5rem + 1.5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--color-text-primary);
+  margin: 0;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.375rem;
+}
+
+.home-page h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(50px, 35%, 120px);
+  height: 3px;
+  background: var(--color-accent-primary);
+  border-radius: 2px;
 }
 
 .hero-intro {
-  font-size:1.05rem;
+  font-size: clamp(0.9375rem, 0.875rem + 0.3vw, 1.125rem);
+  font-weight: 500;
+  line-height: 1.5;
   color: var(--color-text-secondary);
-  text-align:center;
-  max-width: 640px;
-  margin-top:-.5rem;
+  text-align: center;
+  max-width: 600px;
+  margin: 0;
 }
 
 .user-avatar-wrapper {
   position: relative;
-  width: clamp(180px, 32vw, 300px);
+  width: clamp(160px, 30vw, 260px);
   aspect-ratio: 1 / 1;
-  border-radius: 14px;            
+  border-radius: var(--radius-lg);
   background: var(--color-bg-alt);
-  border:1px solid var(--color-border);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  box-shadow: var(--shadow-sm);
+  border: 3px solid var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  --avatar-shadow: -7px;
+  box-shadow: var(--avatar-shadow) var(--avatar-shadow) 0 var(--color-text-primary);
+  transform: translate(7px, 7px);
+  transition: box-shadow var(--dur-med) var(--ease),
+              transform var(--dur-med) var(--ease);
+}
+
+.user-avatar-wrapper:hover {
+  --avatar-shadow: -10px;
+  transform: translate(10px, 10px);
+}
+
+[data-theme="dark"] .user-avatar-wrapper {
+  box-shadow: var(--avatar-shadow) var(--avatar-shadow) 0 var(--color-border-strong);
 }
 
 .user-avatar {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:14px;             
-  opacity:0;
-  transform: scale(.97);
-  transition: opacity 240ms var(--ease), transform 240ms var(--ease);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 400ms var(--ease), 
+              transform 400ms var(--ease);
 }
 
 .user-avatar.loaded {
-  opacity:1;
+  opacity: 1;
   transform: scale(1);
 }
 
 .avatar-skeleton {
-  width:100%;
-  height:100%;
-  border-radius:14px;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-lg);
   background: linear-gradient(90deg,
-    var(--color-bg-alt2),
-    var(--color-bg-alt),
-    var(--color-bg-alt2));
-  background-size:200% 100%;
-  animation:skeleton 1.3s ease-in-out infinite;
+    var(--color-bg-alt2) 0%,
+    var(--color-bg-alt) 50%,
+    var(--color-bg-alt2) 100%);
+  background-size: 200% 100%;
+  animation: skeleton 1.5s ease-in-out infinite;
 }
 
 @keyframes skeleton {
-  0% { background-position:200% 0; }
-  100% { background-position:-200% 0; }
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 .birthday-message {
-  font-size:1.05rem;
-  padding: .9rem 1.2rem;
-  background: var(--color-bg-alt);
-  border:1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  font-size: clamp(0.9375rem, 0.875rem + 0.3vw, 1.125rem);
+  font-weight: 600;
+  line-height: 1.5;
+  padding: clamp(1rem, 2vw, 1.375rem) clamp(1.25rem, 2.5vw, 1.75rem);
+  background: var(--color-bg-base);
+  border: 3px solid var(--color-text-primary);
+  border-radius: var(--radius-lg);
   color: var(--color-text-primary);
-  max-width: 640px;
-  text-align:center;
-  line-height:1.35;
-  box-shadow: var(--shadow-xs);
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  --message-shadow: -5px;
+  box-shadow: var(--message-shadow) var(--message-shadow) 0 var(--color-text-primary);
+  transform: translate(5px, 5px);
+  transition: box-shadow var(--dur-med) var(--ease),
+              transform var(--dur-med) var(--ease);
+}
+
+.birthday-message:hover {
+  --message-shadow: -7px;
+  transform: translate(7px, 7px);
+}
+
+[data-theme="dark"] .birthday-message {
+  box-shadow: var(--message-shadow) var(--message-shadow) 0 var(--color-border-strong);
 }
 
 .birthday-message strong {
-  font-weight:600;
+  font-weight: 800;
   color: var(--color-accent-primary);
+  font-size: 1.0625em;
 }
 
 .birthday-message.warning {
   background: var(--color-accent-muted-bg);
-  border:1px solid var(--color-border);
-  color: var(--color-text-secondary);
+  border-color: var(--color-accent-primary);
+  color: var(--color-text-primary);
+  box-shadow: var(--message-shadow) var(--message-shadow) 0 var(--color-accent-primary);
 }
 
-@media (max-width: 600px) {
-  .home-page { padding: 1.8rem 1rem 2.5rem; }
-  .hero-intro { font-size:.98rem; }
+.birthday-message.warning:hover {
+  --message-shadow: -7px;
+  transform: translate(7px, 7px);
+}
+
+.birthday-message span {
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .home-page {
+    padding: clamp(1.25rem, 3vh, 2rem) clamp(0.875rem, 3vw, 1.5rem) clamp(1.5rem, 4vh, 2.5rem);
+    gap: 1.5rem;
+  }
+
+  .home-page h1 {
+    font-size: clamp(1.625rem, 1.5rem + 1vw, 2.25rem);
+  }
+
+  .home-page h1::after {
+    width: clamp(45px, 30%, 100px);
+    height: 3px;
+  }
+
+  .hero-intro {
+    font-size: 0.9375rem;
+    max-width: 90%;
+  }
+
+  .user-avatar-wrapper {
+    width: clamp(140px, 45vw, 220px);
+    border-width: 2px;
+    --avatar-shadow: -6px;
+    transform: translate(6px, 6px);
+  }
+
+  .user-avatar-wrapper:hover {
+    --avatar-shadow: -8px;
+    transform: translate(8px, 8px);
+  }
+
+  .birthday-message {
+    font-size: 0.9375rem;
+    padding: 1rem 1.25rem;
+    border-width: 2px;
+    --message-shadow: -4px;
+    transform: translate(4px, 4px);
+  }
+
+  .birthday-message:hover {
+    --message-shadow: -5px;
+    transform: translate(5px, 5px);
+  }
+}
+
+@media (max-width: 480px) {
+  .home-page {
+    padding: 1.25rem 0.875rem 1.75rem;
+    gap: 1.25rem;
+  }
+
+  .home-page h1 {
+    font-size: 1.625rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .home-page h1::after {
+    width: 50px;
+    height: 3px;
+  }
+
+  .hero-intro {
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+
+  .user-avatar-wrapper {
+    width: clamp(130px, 55vw, 180px);
+    --avatar-shadow: -4px;
+    transform: translate(4px, 4px);
+  }
+
+  .user-avatar-wrapper:hover {
+    --avatar-shadow: -6px;
+    transform: translate(6px, 6px);
+  }
+
+  .birthday-message {
+    font-size: 0.875rem;
+    padding: 0.875rem 1rem;
+    --message-shadow: -3px;
+    transform: translate(3px, 3px);
+  }
+
+  .birthday-message:hover {
+    --message-shadow: -4px;
+    transform: translate(4px, 4px);
+  }
+
+  .birthday-message strong {
+    font-size: 1.0313em;
+  }
+}
+
+@media (max-width: 360px) {
+  .home-page {
+    padding: 1rem 0.75rem 1.5rem;
+  }
+
+  .home-page h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-intro {
+    font-size: 0.8125rem;
+  }
+
+  .user-avatar-wrapper {
+    width: 120px;
+  }
+
+  .birthday-message {
+    font-size: 0.8125rem;
+    padding: 0.75rem 0.875rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .user-avatar {
+    transition: opacity 200ms;
+    transform: scale(1);
+  }
+
+  .user-avatar.loaded {
+    transform: scale(1);
+  }
+
+  .user-avatar-wrapper,
+  .birthday-message {
+    transform: none !important;
+  }
+
+  .user-avatar-wrapper {
+    box-shadow: -6px -6px 0 var(--color-text-primary);
+  }
+
+  [data-theme="dark"] .user-avatar-wrapper {
+    box-shadow: -6px -6px 0 var(--color-border-strong);
+  }
+
+  .birthday-message {
+    box-shadow: -4px -4px 0 var(--color-text-primary);
+  }
+
+  [data-theme="dark"] .birthday-message {
+    box-shadow: -4px -4px 0 var(--color-border-strong);
+  }
+
+  .birthday-message.warning {
+    box-shadow: -4px -4px 0 var(--color-accent-primary);
+  }
+
+  .avatar-skeleton {
+    animation: none;
+    background: var(--color-bg-alt2);
+  }
+}
+
+@media (prefers-contrast: high) {
+  .home-page h1::after {
+    height: 4px;
+  }
+
+  .user-avatar-wrapper,
+  .birthday-message {
+    border-width: 4px;
+  }
+
+  .birthday-message strong {
+    font-weight: 900;
+  }
+}
+
+@media (forced-colors: active) {
+  .home-page h1::after {
+    background: CanvasText;
+  }
+
+  .user-avatar-wrapper {
+    border-color: CanvasText;
+  }
+
+  .birthday-message {
+    border-color: CanvasText;
+  }
+
+  .birthday-message.warning {
+    border-color: LinkText;
+  }
+}
+
+@media print {
+  .home-page {
+    padding: 1rem;
+  }
+
+  .home-page h1::after {
+    background: #000;
+  }
+
+  .user-avatar-wrapper,
+  .birthday-message {
+    box-shadow: none;
+    transform: none;
+    border: 2px solid #000;
+  }
+
+  .avatar-skeleton {
+    display: none;
+  }
 }
