@@ -7,6 +7,14 @@
     margin-top: 200px;
 }
 
+.message-erreur {
+    margin-top: 13rem;
+    font-size: 18px;
+    color: #a94442;
+    font-weight: bold;
+    text-align: center;
+}
+
 .input-container {
     display: flex;
     flex-direction: column;

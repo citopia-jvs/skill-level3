@@ -20,7 +20,7 @@ const Information: React.FC = () => {
     const userContext = useContext(UserContext);
 
     if (!userContext) {
-        return <div>Erreur: contexte utilisateur non trouvé</div>;
+        return <div className="message-erreur">Erreur: contexte utilisateur non trouvé</div>;
     }
 
     const { user, setUser } = userContext;
