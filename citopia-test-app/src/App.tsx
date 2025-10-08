@@ -12,7 +12,6 @@ const App: React.FC = () => {
   return (
     <Router>
       <Navbar/>
-      <h1 className='title'>Welcome in Citopia Test App 🚀 </h1>
       <AppRoutes />
     </Router>
   )

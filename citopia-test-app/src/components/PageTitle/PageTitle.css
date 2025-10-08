@@ -1,0 +1,22 @@
+/* ========================================
+   PageTitle.css — Style du titre des pages
+   - Responsive mobile / desktop
+   ======================================== */
+   
+/* Mobile-first */
+.pageTitle {
+    text-shadow: 1px 1px 3px rgba(0,74,173,0.6);
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 13rem;
+    margin-bottom: 3rem;
+}
+
+/* Media queries : Desktop & tablette */
+@media (min-width: 768px) {
+    .pageTitle {
+        font-size: 40px;
+        margin-top: 10rem;
+    }
+}
