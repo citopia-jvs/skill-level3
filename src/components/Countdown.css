@@ -1,0 +1,34 @@
+.cd-base {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(90px, 120px));
+  gap: 2.2vw;
+  justify-content: center;
+  align-items: start;
+  margin-top: 18px;
+}
+
+.cd-timer {
+  text-align: center;
+}
+
+.cd-box {
+  background-color: #101E35;
+  color: #ffffff;     
+  border: 1px solid #00CCFF;
+  border-radius: 6px;
+  padding: 10px 10px;
+  min-height: 72px;
+  font-weight: 700;
+  font-size: 2.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cd-text {
+  display: block;
+  margin-top: 8px;
+  color: #c9d1d9;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+}
