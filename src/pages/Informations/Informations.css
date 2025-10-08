@@ -2,10 +2,10 @@ form {
   max-width: 400px;
   margin: 50px auto;
   padding: 30px;
-  background-color: #101E35;
+  background-color: var(--bg2);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  color: #fff;
+  color: var(--text);
 }
 
 form label {
@@ -13,7 +13,7 @@ form label {
   margin-bottom: 6px;
   font-weight: 600;
   font-size: 1.1rem;
-  color: #00CCFF;
+  color: var(--evidence);
 }
 
 form input {
@@ -22,16 +22,16 @@ form input {
   width: 100%;
   padding: 12px 15px;
   margin-bottom: 20px;
-  border: 1px solid #00CCFF;
+  border: 1px solid var(--evidence);
   border-radius: 8px;
   font-size: 1rem;
-  background-color: #0D1B2A;
-  color: #fff;
+  background-color: var(--bg2);
+  color: var(--text);
   transition: all 0.2s ease;
 }
 
 form input:focus {
   outline: none;
-  border-color: #00CCFF;
+  border-color: var(--evidence);
   box-shadow: 0 0 5px rgba(0, 204, 255, 0.5);
 }
