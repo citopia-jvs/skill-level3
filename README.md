@@ -1,75 +1,179 @@
-# React + TypeScript + Vite
+# 🎂 Birthday Tracker App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Une application web moderne et accessible pour gérer vos informations personnelles et suivre votre prochain anniversaire.
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-18.x-61DAFB?style=flat-square&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-5.x-646CFF?style=flat-square&logo=vite)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Fonctionnalités
 
-## React Compiler
+### 📝 Gestion des informations
+- **Formulaire auto-sauvegardé** : Vos données (prénom, nom, date de naissance) sont enregistrées automatiquement sans bouton de validation
+- **Validation en temps réel** : Utilise React Hook Form et Zod pour une validation robuste
+- **State management** : Zustand avec persistance localStorage
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+### 🎉 Suivi d'anniversaire
+- **Calcul dynamique** : Affiche le nombre de jours restants avant votre prochain anniversaire
+- **Message personnalisé** : Message spécial le jour de votre anniversaire
+- **Avatar généré** : Image de profil dynamique basée sur vos données via l'API DummyJSON
 
-Note: This will impact Vite dev & build performances.
+### 🎨 Design moderne
+- **Style Brutalist** : Ombres portées, bordures épaisses, design audacieux
+- **Thème clair/sombre** : Basculez entre les modes avec persistance des préférences
+- **Responsive** : Optimisé pour tous les écrans (mobile, tablette, desktop)
+- **Accessibilité WCAG 2.2** : Cibles tactiles 44px, focus visible, support `prefers-reduced-motion`
 
-## Expanding the ESLint configuration
+### 🧭 Navigation
+- **Routing** : React Router DOM avec 2 pages (Accueil, Informations)
+- **Navigation sticky** : Barre de navigation qui reste visible au scroll
+- **Indicateur de page active** : Style visuel clair sur la page courante
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Installation
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prérequis
+- Node.js 18.x ou supérieur
+- npm 9.x ou supérieur
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation des dépendances
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Scripts disponibles
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Lancer le serveur de développement
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Ouvre l'application sur [http://localhost:5173](http://localhost:5173) avec Hot Module Replacement (HMR).
+
+### Lancer les tests
+
+```bash
+npm run test
+```
+
+Exécute la suite de tests avec Vitest.
+
+### Lancer les tests en mode watch
+
+```bash
+npm run test:watch
+```
+
+Les tests se relancent automatiquement à chaque modification.
+
+### Build de production
+
+```bash
+npm run build
+```
+
+Génère une version optimisée dans le dossier `dist/`.
+
+### Prévisualiser le build
+
+```bash
+npm run preview
+```
+
+Prévisualise le build de production localement.
+
+### Linter
+
+```bash
+npm run lint
+```
+
+Vérifie la qualité du code avec ESLint.
+
+## 📁 Structure du projet
+
+```
+├── public/              # Fichiers statiques
+├── src/
+│   ├── components/      # Composants React
+│   │   ├── Layout/      # Navigation
+│   │   └── UserForm/    # Formulaire utilisateur
+│   ├── hooks/           # Custom hooks (useTheme, useBirthday)
+│   ├── pages/           # Pages (Home, Informations)
+│   ├── services/        # Services API
+│   ├── stores/          # Zustand stores (userStore, themeStore)
+│   ├── styles/          # Fichiers CSS
+│   │   ├── global.css
+│   │   ├── App.css
+│   │   ├── components/
+│   │   └── pages/
+│   ├── types/           # Types TypeScript
+|   ├── tests/           # Tests unitaires
+│   ├── App.tsx          # Composant racine
+│   └── main.tsx         # Point d'entrée
+├── index.html
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
+```
+
+## 🧪 Technologies utilisées
+
+### Core
+- **React 18** - Bibliothèque UI
+- **TypeScript** - Typage statique
+- **Vite** - Build tool ultra-rapide
+
+### Routing & State
+- **React Router DOM** - Gestion du routing
+- **Zustand** - State management léger
+- **Zustand Persist** - Persistance localStorage
+
+### Formulaires & Validation
+- **React Hook Form** - Gestion de formulaires performante
+- **Zod** - Validation de schémas TypeScript-first
+
+### API
+- **DummyJSON API** - Génération d'images de profil dynamiques
+
+### Tests
+- **Vitest** - Framework de tests unitaires
+- **React Testing Library** - Tests de composants React
+
+## 🎨 Choix de design
+
+### Palette de couleurs
+- **Accent principal** : Orange chaleureux (`#c3762b` light, `#d8934b` dark)
+- **Thème clair** : Fond blanc, texte sombre
+- **Thème sombre** : Fond slate foncé, texte clair
+
+### Typographie
+- **Police** : Inter (Google Fonts)
+- **Base** : 16-18px fluide
+- **Titres** : 1.5rem à 2.75rem selon le niveau
+
+### Style Brutalist
+- Bordures épaisses (3px)
+- Ombres portées décalées
+- Animations au hover (translation + ombre)
+- Contraste élevé
+
+## ♿ Accessibilité
+
+- ✅ Cibles tactiles minimum 44x44px (WCAG 2.5.5)
+- ✅ Ratios de contraste conformes (WCAG 1.4.3)
+- ✅ Focus rings visibles (WCAG 2.4.7)
+- ✅ Support `prefers-reduced-motion`
+- ✅ Support `prefers-contrast: high`
+- ✅ Support `forced-colors` (Windows High Contrast)
+- ✅ Navigation au clavier complète
+- ✅ Labels et ARIA attributes appropriés
+
+## 📱 Responsive
+
+- **Mobile** : < 480px (design vertical, ombres réduites)
+- **Tablet** : 481px - 768px (layout adaptatif)
+- **Desktop** : > 768px (layout complet)
+- **Large screens** : > 1400px (marges élargies)
