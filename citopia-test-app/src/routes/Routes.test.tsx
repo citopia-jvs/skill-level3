@@ -11,9 +11,11 @@ import { UserProvider } from "../context/UserProvider";
 describe("<AppRoutes />", () => {
   test("renders Home and Information pages with routing", () =>{
     render(
+      <UserProvider>
         <MemoryRouter initialEntries={['/']}>
             <AppRoutes />
         </MemoryRouter>
+      </UserProvider>
     );
 
     expect(screen.getByText("Accueil")).toBeInTheDocument();
