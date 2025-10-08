@@ -54,5 +54,5 @@ export function getUserImageUrl(
   const bgHex = accentBg.replace("#", "");
   const fgHex = finalText.replace("#", "");
 
-  return `https://dummyjson.com/image/180x180/${bgHex}/${fgHex}?text=${encoded}&fontFamily=ubuntu&fontSize=24&type=png`;
+  return `https://dummyjson.com/image/400x400/${bgHex}/${fgHex}?text=${encoded}&fontFamily=ubuntu&fontSize=28&type=png`;
 }

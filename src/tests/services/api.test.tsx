@@ -21,7 +21,7 @@ describe("getUserImageUrl", () => {
 
   it("retourne une URL avec le nom encodé (mode clair)", () => {
     const url = getUserImageUrl("John", "Doe");
-    expect(url).toContain("https://dummyjson.com/image/180x180/");
+    expect(url).toContain("https://dummyjson.com/image/400x400/");
     expect(url).toContain("John%20Doe");
     const accent = LIGHT_THEME.accent.primary.replace("#", "");
     expect(url).toContain(`/${accent}/`);
