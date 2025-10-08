@@ -10,11 +10,11 @@
 }
 
 [data-theme="light"] {
-  --color-bg-primary: #ffffff;
-  --color-bg-secondary: #f5f5f5;
-  --color-bg-tertiary: #e8e8e8;
+  --color-bg-primary: #fff;
+  --color-bg-secondary: #f7f7f9;
+  --color-bg-tertiary: #e8e8ee;
 
-  --color-text-primary: #1a1a1a;
+  --color-text-primary: #18181a;
   --color-text-secondary: #4a4a4a;
   --color-text-tertiary: #6b6b6b;
 
@@ -34,8 +34,8 @@
 
 [data-theme="dark"] {
   --color-bg-primary: #1a1a1a;
-  --color-bg-secondary: #2a2a2a;
-  --color-bg-tertiary: #3a3a3a;
+  --color-bg-secondary: #262730;
+  --color-bg-tertiary: #32333f;
 
   --color-text-primary: #f0f0f0;
   --color-text-secondary: #d0d0d0;
@@ -78,6 +78,20 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  letter-spacing: 0.01em;
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  h1 {
+    font-size: 2.2em;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5em;
+  }
 }
 
 a {
@@ -99,8 +113,8 @@ a:focus-visible {
 
 button {
   border-radius: 8px;
-  border: 1px solid var(--color-border);
-  padding: 0.6em 1.2em;
+  border: 1.5px solid var(--color-border);
+  padding: 0.6em 1.3em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -108,6 +122,7 @@ button {
   color: var(--color-text-primary);
   cursor: pointer;
   transition: all 0.25s ease;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.04);
 }
 
 button:hover:not(:disabled) {
@@ -135,7 +150,7 @@ select {
   border-radius: 4px;
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
-  transition: border-color 0.25s ease;
+  transition: border-color 0.25s ease, background 0.2s;
 }
 
 input:focus,
@@ -144,6 +159,7 @@ select:focus {
   outline: 2px solid var(--color-border-focus);
   outline-offset: 2px;
   border-color: var(--color-accent-primary);
+  background-color: var(--color-bg-secondary);
 }
 
 :focus-visible {
