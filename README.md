@@ -1,54 +1,67 @@
-# Test technique Citopia
-## Objectif
-- Le test doit être réalisé en utilisant ce dépôt comme base.
-- Les travaux devront être testables sans aucune modification à apporter au code ou au paramétrage, et si besoin, en suivant une documentation pas-à-pas.
-- Utilisez tous les outils nécessaires pour compléter les tâches.
-- Portez une attention particulière à l'historique Git, comme s'il s'agissait d'une situation réelle en projet.
-- On veut tester vos skills et pas ceux de l'IA 😄
+# Citopia Technical Test
 
-## Finalisation de l'exercice
-- Créez une pull request sur le dépôt avec votre travail.
-- Le travail doit être facilement executable.
+## Project Overview
 
-## Contraintes
-### Dans cet exercice, vous devrez utiliser :
-- React
-- TypeScript
+This project is a small React+TypeScript app created for the ***Citopia Technical Test***.  
 
-### En option :
-- Ajouter une feature qui vous semble interressante
+### Main Features
+- **Zustand** for state management with persistence.
+- **Dynamic image generation** using the [DummyJSON API](https://dummyjson.com/docs/image).
+- **Birthday countdown** based on user input.
+- **Unit and integration tests** with Jest and React Testing Library.
 
-## Exercices à réaliser
+### Project Structure
+```
+src/
+ ├── components/
+ ├── pages/
+ │   ├── Home/         # Home page (DummyJSON image + birthday info)
+ │   └── Informations/  # User info form
+ ├── store/            # Zustand store for user data
+ ├── utils/            # Utility functions
+ └── main.tsx
+```
 
-### R1 : Création de l'application
-Créez une application fictive comportant les pages suivantes : Accueil, Informations.
 
-- La page d'accueil devra afficher le contenu défini en R4.
-- La page Informations devra afficher le contenu défini en R2.
-- L'application devra intégrer une navigation permettant de passer d'une page à l'autre.
-- L'application doit pouvoir être facilement lancée en mode développement (avec Hot Reloading) et compilée simplement pour une mise en production.
+## Getting Started
 
-### R2 : Création d'un formulaire utilisateur
-Ajoutez un formulaire sur la page Informations comportant les champs suivants :
+### Section 1: installation
 
-- Nom
-- Prénom
-- Date de naissance
+1. **Clone the repo**
+   ```bash
+   git clone <url>
+   cd <folder>
+   ```
 
-### R3 : Mise à jour automatique des données
-Les modifications effectuées dans le formulaire doivent être enregistrées dans un état local sans cliquer sur un bouton "Enregistrer".
-Pour ce faire veillez utiliser une solution de *state-management*
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-### R4 : Affichage dynamique sur la page d'accueil
-Sur la page d'accueil :
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+   The app will be available at [http://localhost:5173](http://localhost:5173).
 
-- Faites un appel à l'API DummyJSON (https://dummyjson.com/docs) pour générer une image dynamique basée sur les données utilisateur (prénom et nom).
-- L'image sera a afficher au dessus de la phrase : "Votre anniversaire est dans *X* jours" avec *X* le nombre de jours avant la date d'anniversaire spécifiée dans la partie Informations.
-- Attention aux champs qui ne seraient pas encore définis
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
+---
 
-## Points d'attention
-- Organisez votre code pour qu’il soit lisible et maintenable.
-- Fournissez une documentation claire sur la manière d'exécuter, tester et déployer le projet.
-- Adoptez les bonnes pratiques Git : commits clairs, messages explicites, etc.
-- Bonus
-  - Ajoutez des tests unitaires ou d’intégration (exemple : Jest, React Testing Library).
+### Section 2:How to Run Tests
+
+The project uses **Jest** and **React Testing Library**.
+
+Run all tests:
+```bash
+npm run test
+```
+
+To run in watch mode:
+```bash
+npm run test:watch
+```
+
+---
