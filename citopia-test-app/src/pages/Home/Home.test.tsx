@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react"
 import Home from "./Home"; 
 import { UserProvider } from "../../context/UserProvider";
 import { UserContext } from "../../context/UserContext";
+import { MemoryRouter } from "react-router-dom";
 
 /**
  * Tests unitaires de la page d'accueil
@@ -9,20 +10,30 @@ import { UserContext } from "../../context/UserContext";
  * et que le composant gère l'absence du contexte utilisateur.
  */
 
-// Ajout du contexte utilisateur pour rendre le composant
-const renderWithUserContext = (context: React.ReactElement) => {
-  return render (<UserProvider>{context}</UserProvider>);
+// Ajout du contexte utilisateur et du router pour rendre le composant
+const renderWithUserContextAndMemoryRouter = (context: React.ReactElement) => {
+  return render (
+    <MemoryRouter>
+      <UserProvider>
+        {context}
+      </UserProvider>
+    </MemoryRouter>
+  );
 };
 
 describe("<Home />", () => {
   test("Home page displays Accueil", () => {
-    renderWithUserContext( <Home /> );
+    renderWithUserContextAndMemoryRouter( <Home /> );
 
     expect(screen.getByText("Accueil")).toBeInTheDocument();
   });
 
   test("renders error when UserContext is missing", () => {
-    render(<Home />);
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    );
 
     expect(screen.getByText("Erreur: contexte utilisateur non trouvé")).toBeInTheDocument();
   });

@@ -3,6 +3,7 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import { UserContext } from "../../context/UserContext";
 import { calculateDaysToBirthday } from "../../utils/dateUtils";
 import './Home.css';
+import NavigationLink from "../../components/NavigationLink/NavigationLink";
 
 /**
  * Page d'accueil:
@@ -51,13 +52,19 @@ const Home: React.FC = () => {
                                 onLoad={() => setIsImageLoaded(true)}/>
                         </div>
                     ) : (
-                        <p>Veuillez renseigner vos nom et prénom dans la page Informations</p>
+                        <div>
+                            <p>Veuillez renseigner vos nom et prénom dans la page Informations</p>
+                            <NavigationLink to="/information" linkLabel="Aller à la page Informations"/>     
+                        </div>
                     )}
 
                     {user?.birthDate ? (
                         <p>Votre anniversaire est dans {daysToNextBirthday} jours</p>
                     ) : (
-                        <p>Veuillez renseigner votre date de naissance dans la page Informations</p>
+                        <div>
+                            <p>Veuillez renseigner votre date de naissance dans la page Informations</p>
+                            <NavigationLink to="/information" linkLabel="Aller à la page Informations"/>     
+                        </div>
                     )}
                 </div>
             </div> 

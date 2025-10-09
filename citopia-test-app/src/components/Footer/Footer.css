@@ -1,0 +1,20 @@
+/* =========================================================
+   Footer.css — Style du footer
+   - Positionnement fixe en bas de page
+   ========================================================= */
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #D9D9D9;
+    color: #FF914D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    color: #36B9BD;
+    z-index: 1;
+    font-size: 14px;
+}

@@ -3,6 +3,7 @@ import Input from "../../components/Input/Input";
 import "./Information.css";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { UserContext } from "../../context/UserContext";
+import NavigationLink from "../../components/NavigationLink/NavigationLink";
 
 /**
  * Page Information qui permet la saisie des informations utilisateur.
@@ -61,6 +62,9 @@ const Information: React.FC = () => {
                         type="date"
                         className="input"
                     />
+                </div>
+                <div>
+                    <NavigationLink to="/" linkLabel="Aller à la page d'accueil"/>     
                 </div>
             </div>            
         </>

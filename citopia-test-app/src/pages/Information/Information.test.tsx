@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react"
 import Information from "./Information"; 
 import { UserProvider } from "../../context/UserProvider";
+import { MemoryRouter } from "react-router-dom";
 
 /**
  * Tests unitaires de la page Information
@@ -8,20 +9,26 @@ import { UserProvider } from "../../context/UserProvider";
  * et contient les champs attendus.
  */
 
-// Ajout du contexte utilisateur pour rendre le composant
-const renderWithUserContext = (context: React.ReactElement) => {
-  return render (<UserProvider>{context}</UserProvider>);
+// Ajout du contexte utilisateur et du router pour rendre le composant
+const renderWithUserContextAndMemoryRouter = (context: React.ReactElement) => {
+  return render (
+    <MemoryRouter>
+      <UserProvider>
+        {context}
+      </UserProvider>
+    </MemoryRouter>
+  );
 };
 
 describe("<Information />", () => {
   test("information page displays Informations", () => {
-    renderWithUserContext( <Information /> );
+    renderWithUserContextAndMemoryRouter( <Information /> );
 
     expect(screen.getByText("Informations")).toBeInTheDocument();
   });
 
   test("renders form values", () => {
-    renderWithUserContext( <Information /> );
+    renderWithUserContextAndMemoryRouter( <Information /> );
 
     expect(screen.getByLabelText("Nom")).toBeInTheDocument();
     expect(screen.getByLabelText("Prénom")).toBeInTheDocument();
@@ -29,7 +36,7 @@ describe("<Information />", () => {
   });
 
   test("update values when user types", () => {
-    renderWithUserContext( <Information /> );
+    renderWithUserContextAndMemoryRouter( <Information /> );
 
     const inputName = screen.getByLabelText("Nom") as HTMLInputElement;
     fireEvent.change(inputName, { target: { value: "Doe" }});
