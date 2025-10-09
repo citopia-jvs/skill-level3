@@ -1,0 +1,315 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+  padding: clamp(0.875rem, 2vh, 1.25rem) clamp(1rem, 3vw, 2rem);
+  background: var(--color-bg-base);
+  border-bottom: 3px solid var(--color-text-primary);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: background-color var(--dur-med) var(--ease);
+}
+
+nav > div {
+  display: flex;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  font-size: clamp(0.9375rem, 0.875rem + 0.3vw, 1.125rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  color: var(--color-text-primary);
+  
+  padding: 0.5em 1em;
+  min-height: var(--min-touch-target);
+  
+  background: var(--color-bg-base);
+  border: 3px solid var(--color-text-primary);
+  border-radius: var(--radius-xs);
+  
+  --shadow-distance: 0px;
+  box-shadow: var(--shadow-distance) var(--shadow-distance) 0 var(--color-text-primary);
+  transform: translate(0, 0);
+  
+  transition: transform var(--dur-fast) var(--ease),
+              box-shadow var(--dur-fast) var(--ease),
+              background-color var(--dur-fast) var(--ease),
+              color var(--dur-fast) var(--ease);
+}
+
+nav a:hover {
+  --shadow-distance: -6px;
+  transform: translate(6px, 6px);
+  background: var(--color-bg-alt);
+}
+
+nav a:has(span[aria-current="page"]) {
+  background: var(--color-accent-primary);
+  color: #ffffff;
+  border-color: var(--color-accent-primary);
+  --shadow-distance: -5px;
+  transform: translate(5px, 5px);
+  box-shadow: var(--shadow-distance) var(--shadow-distance) 0 var(--color-text-primary);
+}
+
+nav a:has(span[aria-current="page"]):hover {
+  --shadow-distance: -7px;
+  transform: translate(7px, 7px);
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+
+nav a:focus-visible {
+  outline: 4px solid var(--color-accent-primary);
+  outline-offset: 3px;
+  --shadow-distance: -6px;
+  transform: translate(6px, 6px);
+}
+
+nav a:active {
+  --shadow-distance: 0px;
+  transform: translate(0, 0);
+  transition-duration: 0.05s;
+}
+
+nav button {
+  position: relative;
+  width: clamp(44px, 10vw, 52px);
+  height: clamp(44px, 10vw, 52px);
+  min-width: var(--min-touch-target);
+  min-height: var(--min-touch-target);
+  
+  padding: 0;
+  font-size: clamp(1.25rem, 1.125rem + 0.5vw, 1.5rem);
+  
+  background: var(--color-bg-base);
+  color: var(--color-text-primary);
+  border: 3px solid var(--color-text-primary);
+  border-radius: 50%;
+  
+  cursor: pointer;
+  flex-shrink: 0;
+  
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  --shadow-distance: 0px;
+  box-shadow: var(--shadow-distance) var(--shadow-distance) 0 var(--color-text-primary);
+  transform: translate(0, 0);
+  
+  transition: transform var(--dur-fast) var(--ease),
+              box-shadow var(--dur-fast) var(--ease),
+              background-color var(--dur-fast) var(--ease),
+              border-color var(--dur-fast) var(--ease);
+}
+
+nav button:hover {
+  --shadow-distance: -6px;
+  transform: translate(6px, 6px);
+  background: var(--color-accent-muted-bg);
+  border-color: var(--color-accent-primary);
+}
+
+nav button:focus-visible {
+  outline: 4px solid var(--color-accent-primary);
+  outline-offset: 3px;
+  --shadow-distance: -6px;
+  transform: translate(6px, 6px);
+}
+
+nav button:active {
+  --shadow-distance: 0px;
+  transform: translate(0, 0);
+  transition-duration: 0.05s;
+  background: var(--color-accent-primary);
+  color: #ffffff;
+}
+
+[data-theme="dark"] nav {
+  border-bottom-color: var(--color-border-strong);
+}
+
+[data-theme="dark"] nav a {
+  box-shadow: var(--shadow-distance) var(--shadow-distance) 0 var(--color-border-strong);
+}
+
+[data-theme="dark"] nav button {
+  box-shadow: var(--shadow-distance) var(--shadow-distance) 0 var(--color-border-strong);
+}
+
+[data-theme="dark"] nav a:has(span[aria-current="page"]) {
+  box-shadow: var(--shadow-distance) var(--shadow-distance) 0 var(--color-accent-hover);
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    align-items: center;
+  }
+
+  nav > div {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  nav a {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.9375rem;
+  }
+
+  nav button {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    padding: 0.875rem;
+  }
+
+  nav > div {
+    gap: 0.625rem;
+  }
+
+  nav a {
+    font-size: 0.875rem;
+    padding: 0.5em 1em;
+  }
+
+  nav a:hover,
+  nav button:hover {
+    --shadow-distance: -4px;
+    transform: translate(4px, 4px);
+  }
+
+  nav a:has(span[aria-current="page"]) {
+    --shadow-distance: -3px;
+    transform: translate(3px, 3px);
+  }
+
+  nav a:has(span[aria-current="page"]):hover {
+    --shadow-distance: -5px;
+    transform: translate(5px, 5px);
+  }
+
+  nav button {
+    width: 44px;
+    height: 44px;
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  nav {
+    flex-direction: row;
+    padding: 0.75rem 1.25rem;
+    gap: 0.875rem;
+  }
+
+  nav > div {
+    flex-direction: row;
+    width: auto;
+    gap: 0.75rem;
+  }
+
+  nav a {
+    width: auto;
+    font-size: 0.875rem;
+    padding: 0.5em 0.875em;
+  }
+
+  nav a:hover,
+  nav button:hover {
+    --shadow-distance: -4px;
+    transform: translate(4px, 4px);
+  }
+}
+
+@media (min-width: 1400px) {
+  nav {
+    padding-inline: max(2rem, calc((100vw - 1400px) / 2 + 2rem));
+  }
+
+  nav > div {
+    gap: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  nav a,
+  nav button {
+    transition: background-color var(--dur-fast), 
+                border-color var(--dur-fast),
+                color var(--dur-fast);
+  }
+
+  nav a:hover,
+  nav a:has(span[aria-current="page"]),
+  nav button:hover {
+    transform: none;
+    --shadow-distance: -3px;
+  }
+
+  nav a:active,
+  nav button:active {
+    transform: none;
+    --shadow-distance: 0px;
+  }
+}
+
+@media (prefers-contrast: high) {
+  nav,
+  nav a,
+  nav button {
+    border-width: 4px;
+  }
+}
+
+@media (forced-colors: active) {
+  nav a,
+  nav button {
+    forced-color-adjust: none;
+    border-color: CanvasText;
+  }
+
+  nav a:has(span[aria-current="page"]) {
+    background: Highlight;
+    color: HighlightText;
+  }
+}
+
+@media print {
+  nav {
+    position: static;
+    border-bottom: 3px solid #000;
+    background: transparent;
+  }
+
+  nav a,
+  nav button {
+    box-shadow: none;
+    transform: none;
+    border-color: #000;
+  }
+
+  nav button {
+    display: none;
+  }
+}

@@ -1,54 +1,179 @@
-# Test technique Citopia
-## Objectif
-- Le test doit être réalisé en utilisant ce dépôt comme base.
-- Les travaux devront être testables sans aucune modification à apporter au code ou au paramétrage, et si besoin, en suivant une documentation pas-à-pas.
-- Utilisez tous les outils nécessaires pour compléter les tâches.
-- Portez une attention particulière à l'historique Git, comme s'il s'agissait d'une situation réelle en projet.
-- On veut tester vos skills et pas ceux de l'IA 😄
+# 🎂 Birthday Tracker App
 
-## Finalisation de l'exercice
-- Créez une pull request sur le dépôt avec votre travail.
-- Le travail doit être facilement executable.
+Une application web moderne et accessible pour gérer vos informations personnelles et suivre votre prochain anniversaire.
 
-## Contraintes
-### Dans cet exercice, vous devrez utiliser :
-- React
-- TypeScript
+![React](https://img.shields.io/badge/React-18.x-61DAFB?style=flat-square&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=flat-square&logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-5.x-646CFF?style=flat-square&logo=vite)
 
-### En option :
-- Ajouter une feature qui vous semble interressante
+## ✨ Fonctionnalités
 
-## Exercices à réaliser
+### 📝 Gestion des informations
+- **Formulaire auto-sauvegardé** : Vos données (prénom, nom, date de naissance) sont enregistrées automatiquement sans bouton de validation
+- **Validation en temps réel** : Utilise React Hook Form et Zod pour une validation robuste
+- **State management** : Zustand avec persistance localStorage
 
-### R1 : Création de l'application
-Créez une application fictive comportant les pages suivantes : Accueil, Informations.
+### 🎉 Suivi d'anniversaire
+- **Calcul dynamique** : Affiche le nombre de jours restants avant votre prochain anniversaire
+- **Message personnalisé** : Message spécial le jour de votre anniversaire
+- **Avatar généré** : Image de profil dynamique basée sur vos données via l'API DummyJSON
 
-- La page d'accueil devra afficher le contenu défini en R4.
-- La page Informations devra afficher le contenu défini en R2.
-- L'application devra intégrer une navigation permettant de passer d'une page à l'autre.
-- L'application doit pouvoir être facilement lancée en mode développement (avec Hot Reloading) et compilée simplement pour une mise en production.
+### 🎨 Design moderne
+- **Style Brutalist** : Ombres portées, bordures épaisses, design audacieux
+- **Thème clair/sombre** : Basculez entre les modes avec persistance des préférences
+- **Responsive** : Optimisé pour tous les écrans (mobile, tablette, desktop)
+- **Accessibilité WCAG 2.2** : Cibles tactiles 44px, focus visible, support `prefers-reduced-motion`
 
-### R2 : Création d'un formulaire utilisateur
-Ajoutez un formulaire sur la page Informations comportant les champs suivants :
+### 🧭 Navigation
+- **Routing** : React Router DOM avec 2 pages (Accueil, Informations)
+- **Navigation sticky** : Barre de navigation qui reste visible au scroll
+- **Indicateur de page active** : Style visuel clair sur la page courante
 
-- Nom
-- Prénom
-- Date de naissance
+## 🚀 Installation
 
-### R3 : Mise à jour automatique des données
-Les modifications effectuées dans le formulaire doivent être enregistrées dans un état local sans cliquer sur un bouton "Enregistrer".
-Pour ce faire veillez utiliser une solution de *state-management*
+### Prérequis
+- Node.js 18.x ou supérieur
+- npm 9.x ou supérieur
 
-### R4 : Affichage dynamique sur la page d'accueil
-Sur la page d'accueil :
+### Installation des dépendances
 
-- Faites un appel à l'API DummyJSON (https://dummyjson.com/docs) pour générer une image dynamique basée sur les données utilisateur (prénom et nom).
-- L'image sera a afficher au dessus de la phrase : "Votre anniversaire est dans *X* jours" avec *X* le nombre de jours avant la date d'anniversaire spécifiée dans la partie Informations.
-- Attention aux champs qui ne seraient pas encore définis
+```bash
+npm install
+```
 
-## Points d'attention
-- Organisez votre code pour qu’il soit lisible et maintenable.
-- Fournissez une documentation claire sur la manière d'exécuter, tester et déployer le projet.
-- Adoptez les bonnes pratiques Git : commits clairs, messages explicites, etc.
-- Bonus
-  - Ajoutez des tests unitaires ou d’intégration (exemple : Jest, React Testing Library).
+## 🛠️ Scripts disponibles
+
+### Lancer le serveur de développement
+
+```bash
+npm run dev
+```
+
+Ouvre l'application sur [http://localhost:5173](http://localhost:5173) avec Hot Module Replacement (HMR).
+
+### Lancer les tests
+
+```bash
+npm run test
+```
+
+Exécute la suite de tests avec Vitest.
+
+### Lancer les tests en mode watch
+
+```bash
+npm run test:watch
+```
+
+Les tests se relancent automatiquement à chaque modification.
+
+### Build de production
+
+```bash
+npm run build
+```
+
+Génère une version optimisée dans le dossier `dist/`.
+
+### Prévisualiser le build
+
+```bash
+npm run preview
+```
+
+Prévisualise le build de production localement.
+
+### Linter
+
+```bash
+npm run lint
+```
+
+Vérifie la qualité du code avec ESLint.
+
+## 📁 Structure du projet
+
+```
+├── public/              # Fichiers statiques
+├── src/
+│   ├── components/      # Composants React
+│   │   ├── Layout/      # Navigation
+│   │   └── UserForm/    # Formulaire utilisateur
+│   ├── hooks/           # Custom hooks (useTheme, useBirthday)
+│   ├── pages/           # Pages (Home, Informations)
+│   ├── services/        # Services API
+│   ├── stores/          # Zustand stores (userStore, themeStore)
+│   ├── styles/          # Fichiers CSS
+│   │   ├── global.css
+│   │   ├── App.css
+│   │   ├── components/
+│   │   └── pages/
+│   ├── types/           # Types TypeScript
+|   ├── tests/           # Tests unitaires
+│   ├── App.tsx          # Composant racine
+│   └── main.tsx         # Point d'entrée
+├── index.html
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
+```
+
+## 🧪 Technologies utilisées
+
+### Core
+- **React 18** - Bibliothèque UI
+- **TypeScript** - Typage statique
+- **Vite** - Build tool ultra-rapide
+
+### Routing & State
+- **React Router DOM** - Gestion du routing
+- **Zustand** - State management léger
+- **Zustand Persist** - Persistance localStorage
+
+### Formulaires & Validation
+- **React Hook Form** - Gestion de formulaires performante
+- **Zod** - Validation de schémas TypeScript-first
+
+### API
+- **DummyJSON API** - Génération d'images de profil dynamiques
+
+### Tests
+- **Vitest** - Framework de tests unitaires
+- **React Testing Library** - Tests de composants React
+
+## 🎨 Choix de design
+
+### Palette de couleurs
+- **Accent principal** : Orange chaleureux (`#c3762b` light, `#d8934b` dark)
+- **Thème clair** : Fond blanc, texte sombre
+- **Thème sombre** : Fond slate foncé, texte clair
+
+### Typographie
+- **Police** : Inter (Google Fonts)
+- **Base** : 16-18px fluide
+- **Titres** : 1.5rem à 2.75rem selon le niveau
+
+### Style Brutalist
+- Bordures épaisses (3px)
+- Ombres portées décalées
+- Animations au hover (translation + ombre)
+- Contraste élevé
+
+## ♿ Accessibilité
+
+- ✅ Cibles tactiles minimum 44x44px (WCAG 2.5.5)
+- ✅ Ratios de contraste conformes (WCAG 1.4.3)
+- ✅ Focus rings visibles (WCAG 2.4.7)
+- ✅ Support `prefers-reduced-motion`
+- ✅ Support `prefers-contrast: high`
+- ✅ Support `forced-colors` (Windows High Contrast)
+- ✅ Navigation au clavier complète
+- ✅ Labels et ARIA attributes appropriés
+
+## 📱 Responsive
+
+- **Mobile** : < 480px (design vertical, ombres réduites)
+- **Tablet** : 481px - 768px (layout adaptatif)
+- **Desktop** : > 768px (layout complet)
+- **Large screens** : > 1400px (marges élargies)
