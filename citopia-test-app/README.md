@@ -1,73 +1,98 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Citopia Test App
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Application React pour Citopia, développée en TypeScript avec Vite et permettant :
 
-## React Compiler
+- la saisie d’informations utilisateur (nom, prénom, date de naissance),
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- l’affichage d’une page d’accueil avec image dynamique générée selon les données utilisateur,
 
-## Expanding the ESLint configuration
+- un état centralisé via UserContext et une navigation entre pages avec React Router.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Installation
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+```bash
+# Clone du dépôt
+git clone https://github.com/bcalas78/skill-level3.git
+cd citopia-test-app
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Installation des dépendances
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Lancer l'application
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Pour démarrer le serveur de développement avec Vite :
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Puis ouvrir le navigateur à l’adresse indiquée (généralement http://localhost:5173).
+
+## Build de production
+
+Pour générer une version de production :
+
+```bash
+npm run build
+```
+
+Le fichier /dist contient les fichiers optimisés.
+
+## Tests
+
+### Lancer les tests unitaires avec Vitest
+
+```bash
+npm run test
+```
+
+### Couverture de code
+
+```bash
+npm run test:coverage
+```
+
+Le rapport des tests se trouvent dans coverage/index.html qu'il faut ouvrir dans un navigateur pour visualiser les résultats.
+
+## Choix techniques justifiés
+
+React + TypeScript : pour bénéficier de composants réutilisables et de typage statique.
+
+Vite : pour un démarrage rapide et un hot reload performant.
+
+Vitest : pour les tests unitaires, rapide et compatible avec Vite.
+
+React Router DOM : pour gérer le routage entre les pages Accueil et Informations.
+
+Context API : pour centraliser l’état utilisateur (nom, prénom, date de naissance) et le partager entre les composants.
+
+CSS mobile-first : pour garantir une bonne expérience sur tous types d’écrans.
+
+Composants réutilisables (Input, PageTitle) : pour standardiser l’affichage et simplifier la maintenance.
+
+## Fonctionnalités
+
+Navigation entre les pages Accueil et Informations.
+
+Saisie des informations utilisateur avec validation (champs requis).
+
+Calcul du nombre de jours avant le prochain anniversaire.
+
+Affichage conditionnel et gestion du contexte utilisateur.
+
+Composants réutilisables et stylisés de manière responsive.
+
+Tests unitaires avec Vitest pour garantir le bon fonctionnement des composants et de la logique métier.
+
+Bonus: intégration d'une météo en temps réel comme tout citoyen peut avoir envie de trouver sur les supports de ses collectivités locales.
+
+# Auteur
+
+Projet réalisé par Barbara Calas
+
+dans le cadre du test technique Citopia "skill-level3".
