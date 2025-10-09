@@ -1,0 +1,47 @@
+/* =============================
+   Input.css — Style des inputs
+   - Responsive mobile / desktop
+   ============================= */
+   
+/* Mobile-first */
+label {
+    font-size: 18px;
+}
+
+input {
+    height: 30px;
+    font-size: 18px;
+    font-size:  sans-serif;
+    color: #333; 
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 0.2rem;
+}
+
+input::placeholder {
+    font-size: 18px;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Media queries : Desktop & tablette */
+@media (min-width: 768px) {
+    label {
+        font-size: 24px;
+    }
+
+    input {
+        height: 35px;
+        font-size: 22px;
+    }
+
+    input::placeholder {
+        font-size: 22px;
+    }
+}
